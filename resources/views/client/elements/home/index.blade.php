@@ -5,7 +5,7 @@
 @section('content')
     <div class="body__lesson">
         <div class="header__title">
-            <a href="./example.html" class="body__lesson-link body__lesson-title">
+            <a href="{{ route('client.unit.index') }}" class="body__lesson-link body__lesson-title">
                 HỌC PHÁT ÂM TIẾNG ANH <span>VỚI GIÁO VIÊN MỸ</span>
                 <a href="" class=" body__lesson-title"><i
                         class="body__lesson-link-logo bi bi-chevron-right"></i></a>

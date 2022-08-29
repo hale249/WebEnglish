@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', __('labels.pages.admin.profile.title.change_password'))
+@section('title','Cập nhật mật khẩu')
 
 @section('content')
     <div class="card">
@@ -9,42 +9,42 @@
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
-                    @lang('labels.pages.admin.profile.title.change_password')
+                    Cập nhật mật khẩu
                     <small class="text-muted">{{ $user->name }}</small>
                 </h4>
                 <hr>
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="old_password">@lang('labels.pages.admin.profile.form.old_password')</label>
+                    <label class="col-md-2 form-control-label" for="old_password">Email</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="password" name="old_password" id="old_password" value="" placeholder="{{ __('labels.pages.admin.profile.form.placeholder.old_password') }}" maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="password" name="old_password" id="old_password" value="" placeholder="Nhập email..." maxlength="191" required="" autofocus="">
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="password">@lang('labels.pages.admin.profile.form.password')</label>
+                    <label class="col-md-2 form-control-label" for="password">Mật khẩu</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="password" name="password" id="password" placeholder="{{ __('labels.pages.admin.profile.form.placeholder.password') }}" maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Nhập mật khẩu..." maxlength="191" required="" autofocus="">
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="password-confirmation">@lang('labels.pages.admin.profile.form.password_confirmation')</label>
+                    <label class="col-md-2 form-control-label" for="password-confirmation">Xác thực mật khẩu</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="password" name="password_confirmation" id="password-confirmation" placeholder="{{ __('labels.pages.admin.profile.form.placeholder.password_confirmation') }}" maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="password" name="password_confirmation" id="password-confirmation" placeholder="Nhập xác thực mật khẩu..." maxlength="191" required="" autofocus="">
                     </div><!--col-->
                 </div>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.dashboard.index') }}" class="btn btn-danger btn-sm">@lang('labels.general.cancel')</a>
+                        <a href="{{ route('admin.dashboard.index') }}" class="btn btn-danger btn-sm">Hủy</a>
                     </div>
 
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-success btn-sm">@lang('labels.pages.admin.profile.form.edit_submit')</button>
+                        <button type="submit" class="btn btn-success btn-sm">Cập nhật</button>
                     </div>
                 </div>
             </div>

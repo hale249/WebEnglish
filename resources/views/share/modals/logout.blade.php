@@ -4,15 +4,15 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@lang('strings.logout_modal_title')</h5>
+                    <h5 class="modal-title">Đăng xuất</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">@lang('strings.logout_modal_text')</div>
+                <div class="modal-body">Chắc chắn bạn đăng xuất không?</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">@lang('labels.general.cancel')</button>
-                    <button type="submit" class="btn btn-primary">@lang('labels.general.logout')</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Đăng xuất</button>
                 </div>
             </div>
         </form>

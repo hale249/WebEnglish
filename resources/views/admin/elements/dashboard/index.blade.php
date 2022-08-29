@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', __('labels.pages.admin.dashboard.title'))
+@section('title', 'Tổng quan')
 
 @section('content')
     <div class="card">

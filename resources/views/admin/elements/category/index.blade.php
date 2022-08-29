@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', __('labels.pages.admin.category.title.management'))
+@section('title', 'Danh sách danh mục')
 
 @section('content')
     <div class="card">
@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-8">
                     <h4 class="card-title mb-0">
-                        @lang('labels.pages.admin.category.title.management')
+                        Danh mục
                     </h4>
                 </div>
                 <div class="col-4 text-right">
                     @can(\App\Helpers\PermissionConstant::PERMISSION_ADD_CATEGORY)
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> @lang('labels.pages.admin.category.create_new_category')</a>
+                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tạo mới</a>
                     @endcan
                 </div>
             </div>
@@ -23,14 +23,14 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <td><strong>@lang('labels.pages.admin.category.table.name')</strong></td>
-                            <td><strong>@lang('labels.pages.admin.category.table.image')</strong></td>
+                            <td><strong>Tên</strong></td>
+                            <td><strong>Hình ảnh</strong></td>
                             @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)
-                                <td><strong>@lang('labels.pages.admin.category.table.user')</strong></td>
+                                <td><strong>Người tạo</strong></td>
                             @endcan
-                            <td><strong>@lang('labels.general.status')</strong></td>
-                            <td><strong>@lang('labels.general.created_at')</strong></td>
-                            <td><strong>@lang('labels.general.action')</strong></td>
+                            <td><strong>Trạng thái</strong></td>
+                            <td><strong>Tạo lúc</strong></td>
+                            <td><strong>Hành động</strong></td>
                         </tr>
                         </thead>
                         <tbody>

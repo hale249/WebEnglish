@@ -1,0 +1,995 @@
+:root {
+    --primary-color: #f28220;
+}
+
+.font-size {
+    font-size: 18px;
+    line-height: 25px;
+    color: #333;
+}
+
+.font-size_s {
+    font-size: 12px;
+    color: #333;
+    font-weight: 400;
+}
+
+.font {
+    font-size: 14px;
+    line-height: 20px;
+    color: #888;
+    font-weight: 400;
+}
+
+.container {
+    max-width : 1000px
+}
+
+.heading__h {
+    padding: 20px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url('/images/bg_body_center.jpg');
+    background-size: cover;
+}
+
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: 1px solid #ccc;
+}
+
+.btn-primary__focus:focus {
+    background-color: #f19a4e;
+    box-shadow: none;
+}
+
+.btn-primary__closer:hover {
+    background-color: red;
+}
+
+.btn-primary:hover {
+    background-color: #f19a4e;
+}
+
+/* main */
+.container__header-logo-img {
+    width: 230px;
+}
+
+.search-btn {
+    position: relative;
+    bottom: -3px;
+    margin-left: 7px;
+}
+
+.container__form {
+    border: 1px solid #d4c59f;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.container__form-input {
+    padding: 5px 8px;
+    background: none;
+    font-size: 14px;
+    border: none;
+    line-height: 32px;
+    width: 300px;
+    outline: none;
+}
+
+.container__form-btn {
+    background-color: var(--primary-color);
+}
+
+.container__form-btn:hover {
+    background-color: #f19a4e;
+}
+
+
+.container__member a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.container__member-login,
+.container__member-register {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    line-height: 20px;
+    margin-right: 2px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.container__member-login {
+    background-color: #52a20b;
+}
+
+.container__member-login-logo {
+    font-size: 17px;
+    padding: 3px;
+}
+
+.container__member-register {
+    background-color: #585858;
+}
+
+.container__member a:hover {
+    color: var(--primary-color);
+}
+
+.container__member:hover i {
+    color: #fff;
+}
+
+/* nav */
+.nav_menu {
+    background-color: #d4c59f;
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+.nav__list {
+    right: 0;
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav__list:first-child .nav__item-link-logo {
+    border-left: none;
+}
+
+.nav__item-logo {
+    font-size: 40px;
+}
+
+.nav__item-link {
+    padding: 0 9px;
+    font-weight: 700;
+    line-height: 48px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #474646;
+    border-left: 1px solid #999;
+}
+
+.nav__item:hover {
+    background-color: var(--primary-color);
+}
+
+.nav__item:hover .sub__nav {
+    display: block;
+}
+
+.nav__item:hover .nav__item-link {
+    color: #fff;
+}
+
+
+/* sub nav */
+.sub__nav {
+    border-radius: 2px;
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    display: none;
+    z-index: 1;
+}
+
+.sub__nav::before {
+    content: "";
+    border: 10px solid;
+    border-color: var(--primary-color) transparent transparent transparent;
+    position: absolute;
+    top: -1px;
+    left: 10px;
+}
+
+.sub__nav-list {
+    padding: 15px 20px;
+    list-style: none;
+}
+
+.sub__nav-item {
+    border-bottom: 1px solid #999;
+}
+
+.sub__nav-item-link {
+    padding: 0 9px;
+    font-weight: 700;
+    line-height: 48px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #474646;
+
+}
+
+.sub__nav-item-link:hover {
+    color: var(--primary-color);
+}
+
+/* sub child */
+.sub__child {
+    position: absolute;
+    top: 20px;
+    right: -38%;
+    box-shadow: 0px 0px 3px #878782;
+    background-color: #fff;
+    display: none;
+}
+
+.sub__chill-item {
+    border-bottom: 1px solid #ccc;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.sub__chill-list {
+    padding: 0 15px;
+}
+
+.sub__chill-item-link {
+    text-decoration: none;
+    color: #474646;
+    font-size: 12px;
+    line-height: 22px;
+}
+
+.sub__chill-item-link:hover {
+    color: var(--primary-color);
+}
+
+.sub__nav-item--fist-child:hover {
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.sub__nav-item--fist-child:hover .sub__nav-item-link--fist-child {
+    color: #fff;
+}
+
+.sub__nav-item--fist-child:first-child:hover .sub__child {
+    display: block;
+}
+
+.sub__nav-item--fist-child:first-child::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 38%;
+    height: 12%;
+    right: -20%;
+}
+
+/* banner img */
+.banner__top {
+    background-image: url('https://data.tienganh123.com/images/banner/lt123_1000_90_new2.jpg');
+    background-size: 100%;
+    height: 85px;
+    background-repeat: no-repeat;
+}
+
+.banner__body {
+    background-image: url('https://data.tienganh123.com/images/popup/banner_km_thang7_2022_ngang.jpg');
+    background-size: 100%;
+    height: 150px;
+    background-repeat: no-repeat;
+}
+
+.banner__top {
+    margin-bottom: 8px;
+}
+
+/* body lessons */
+.body__lesson {
+    padding: 20px 40px;
+    background-color: #fff;
+}
+
+.body__lesson-title {
+    margin-bottom: 15px;
+    font-size: 25px;
+    color: #222;
+    line-height: 40px;
+    font-weight: 700;
+    padding-top: 10px;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.figure:hover .figure-caption__link {
+    color: var(--primary-color);
+}
+
+.body__lesson-title span {
+    color: var(--primary-color);
+}
+
+.body__lesson-link-logo {
+    float: right;
+    margin-right: 10px;
+    width: 1px;
+    font-size: 14px;
+    color: #474646;
+}
+
+.body__lesson-title-strong {
+    font-size: 17px;
+    line-height: 32px;
+    margin: 30px 0;
+    font-weight: 600;
+}
+
+.body__lesson-img {
+    border: 2px solid #dfdfdf;
+    border-radius: 7px;
+    width: 300px;
+    height: cover;
+}
+
+.figure-caption__link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.figure-caption__link span {
+    padding: 0 5px;
+    font-weight: 600;
+    border: 1px solid #333;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+.body__lesson-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body__lesson-footer-tag {
+    font-size: 13px;
+    padding: 0 10px 0 30px;
+    line-height: 22px;
+    background: #d54d4d;
+    color: #fff;
+    border-radius: 11px;
+    height: 22px;
+    position: relative;
+}
+
+.body__lesson-footer-icon {
+    color: yellow;
+}
+
+.body__lesson-footer-icon {
+    font-size: 30px;
+    position: absolute;
+    left: 0;
+    top: -9px;
+}
+
+.body__lesson-footer-btn {
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    color: #247ba0;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.body__lesson-footer-btn:hover span {
+    color: var(--primary-color);
+}
+
+.body__lesson-footer-btn span {
+    padding: 0 5px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+/* new lesson */
+.new__lesson {
+    margin-top: 30px;
+    position: relative;
+}
+
+.new__lesson-content span {
+    font-size: 14px;
+    line-height: 18px;
+    color: #333;
+}
+
+.new__lesson-date {
+    font-size: 13px;
+    line-height: 20px;
+    color: #888;
+}
+
+.new__lesson-item-link:hover .new__lesson-content--blue{
+    color: var(--primary-color);
+}
+
+.new__lesson-item-link {
+    text-decoration: none;
+
+}
+
+.new__lesson-content--blue {
+    color: #247ba0;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.new__lesson-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: -34px;
+}
+
+.lesson__banner {
+    /* background-color: #fff; */
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-image: url('https://data.tienganh123.com/images/banner/tacbm_banner_ngang.jpg');
+    background-size: 1300px;
+    height: 120px;
+    background-repeat: no-repeat;
+}
+
+/* lesson hightschool */
+.header__title {
+    border-bottom: 1px solid #888 ;
+    margin-bottom: 20px;
+}
+
+.header__title a:hover {
+    color: #333;
+}
+
+.lesson__hightschool-link {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+p {
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 500;
+
+}
+
+.lesson__hightschool-link:hover span {
+    color: var(--primary-color);
+}
+
+.lesson__hightschool-link-img {
+    width: 400px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.lesson__hightschool-link-content {
+    position: absolute;
+    top: 18px;
+    right: 79px;
+    font-size: 40px;
+    line-height: 50px;
+    color: #fff;
+}
+.list-group__color {
+    background-color: #888;
+}
+
+.lesson__hightschool-list {
+    padding: 0;
+    font-size: 20px;
+    line-height: 42px;
+    font-weight: 500;
+    padding-left: 40px;
+}
+
+.lesson__hightschool-list:hover{
+    color: var(--primary-color);
+}
+.lesson__hightschool-list:hover span{
+    color: var(--primary-color);
+}
+
+.lesson__hightschool-list span {
+    font-size: 20px;
+    line-height: 8PX;
+    padding: 10px;
+    background-color: #247ba0;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 20px;
+
+}
+
+.lesson__hightschool-num {
+    font-size: 20px;
+}
+
+.lesson__hightschool-btn {
+    background-color: #ccc;
+    color: #333;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.lesson__hightschool-btn:hover {
+    color: var(--primary-color);
+    background-color: #888;
+}
+
+.lesson__hightschool-btn-logo {
+    color: #474646;
+    padding: 0 15px;
+}
+
+/* point */
+.point {
+    margin: 40px 0;
+}
+
+.point__content {
+    padding-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.col-3 a:hover {
+    color: var(--primary-color);
+}
+
+.point-img {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.point-img__content {
+    text-align: center;
+    margin-bottom: 0;
+    padding: 5px 0;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.point-img__content span {
+    font-weight: 700;
+}
+
+.point__footer {
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-image: url('https://data.tienganh123.com/images/v2/home/images/hoithoai.png');
+    background-size: 1300px;
+    height: 160px;
+    background-repeat: no-repeat;
+}
+
+.point__footer-content {
+    text-align: center;
+    color: #fff;
+}
+
+.point__footer-content h2 {
+    padding-top: 40px;
+    margin-bottom: 0;
+}
+
+.point__footer-content p{
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+/* lesson video */
+.lesson__video-list {
+    list-style: none;
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+.lesson__video-heading:hover a {
+    color: var(--primary-color);
+}
+
+.lesson__video-heading-link {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 500;
+    margin-left: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sup__div {
+    margin-left: 10px;
+}
+
+.lesson__video-heading-link span {
+    font-size: 17px;
+    line-height: 34px;
+    font-weight: 700;
+}
+
+.lesson__video-heading-suplink {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 4px;
+}
+
+/* lesson-entertainment */
+.lesson-entertainment__film {
+    position: relative;
+}
+
+.lesson-entertainment__img {
+    width: 400px;
+    height: 220px;
+}
+
+.lesson-entertainment__img-title {
+    position: absolute;
+    bottom: 16px;
+    left: 33px;
+    color: #ffd01f;
+}
+
+.lesson-entertainment__img-title-headding {
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #fff
+}
+
+.lesson-entertainment__img-title-icon {
+    padding-right: 10px;
+}
+
+.list {
+    margin: 10px 0;
+}
+
+.list__music {
+    border-bottom: 1px solid #888;
+}
+
+.list__content {
+    font-size: 16px;
+    line-height: 50px;
+    font-weight: 600;
+    color: #247ba0;
+    padding-right: 20px;
+}
+
+.list__sub {
+    font-size: 11px;
+    line-height: 20px;
+}
+
+.lesson-entertainment__film:hover h4 {
+    color: var(--primary-color);
+}
+
+.list__music:hover .list__content{
+    color: var(--primary-color);
+}
+
+#logo {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 110px;
+    float: right;
+}
+
+.footer {
+    background-color: rgb(227, 223, 223);
+}
+
+.footer__list {
+    list-style: none;
+}
+
+.footer__list-item-link {
+    color: #585858;
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.footer__list-item-link:hover {
+    color: var(--primary-color);
+}
+
+
+.footer__list-item:first-child .footer__list-item-link {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer__list-item:first-child {
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+}
+
+/* model */
+.form-input:focus {
+    box-shadow: none;
+}
+
+
+/* example.html */
+.container__background{
+    background-color: #fff;
+}
+
+.col__logo {
+    background-color: #52a20b;
+    border-radius: 100%;
+    margin: 20px 0;
+}
+
+.col__logo-img {
+    font-size: 62px;
+    padding: 0 15px;
+    color: #fff;
+}
+
+.learn-america__noti {
+    background-color: #e8ece3;
+}
+
+.learn-america__noti-list {
+    margin: 15px 0;
+    padding: 0;
+}
+
+.col__logo-content {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: #585858;
+}
+
+
+.learn-america__noti-list-logo {
+    font-size: 20px;
+    color: #fff;
+    padding: 2px 5px;
+    margin: 0 15px;
+    background-color: #52a20b;
+    border-radius: 50%;
+}
+
+.learn__btn--center {
+    text-align: center;
+}
+
+.learn__btn {
+    margin: 20px 0;
+    background-color: #52a20b;
+    font-size: 20px;
+    line-height: 35px;
+    color: #fff;
+}
+
+.learn__btn:hover {
+    background-color: #52a20b;
+    color: var(--primary-color);
+}
+
+.learn__btn-logo {
+    font-size: 25px;
+    position: relative;
+    top: 1px;
+    padding: 0 5px;
+}
+
+/* list video */
+
+.list h2 {
+    margin: 15px 0;
+}
+
+.list p {
+    margin-bottom: 0;
+}
+
+.col4__video {
+    margin: 10px 0;
+}
+
+.sub-video{
+    margin-top: 10px;
+}
+
+.sub-video__link {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+.sub-video__link:hover {
+    color: var(--primary-color);
+}
+
+.sub-video__stick {
+    color: #125ee8;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.sub-video__link-logo {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.sub-video__stick--yellow {
+    color: #e89e0e;
+}
+
+/* sup listvideo */
+
+.txt-light {
+    font-size: 14px;
+    color: #e89e0e;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.txt-light a {
+    color: #125ee8;
+    text-decoration: underline;
+}
+
+.txt-light span {
+    color: red;
+}
+
+.video {
+    margin: 30px 0;
+}
+
+.next-lesson {
+    margin-top: 20px;
+}
+
+/* new lesson */
+
+.new-lesson__list p {
+    margin-bottom: 0;
+}
+
+.new-lesson__list span {
+    line-height: 30px;
+
+}
+
+.new-lesson__item {
+    padding-bottom: 8px;
+}
+
+.new-lesson__list h2 {
+    padding: 20px 0;
+}
+
+.new-lesson__list a:hover p{
+    color: var(--primary-color);
+}
+
+.new-lesson__list a:hover {
+    color: #333;
+}
+
+/* book hightschool */
+.book h2 {
+    padding: 20px 0;
+}
+
+.book p {
+    font-size: 15px;
+    line-height: 25px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.book-list h3 {
+    line-height: 30px;
+    margin: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.book-list__img {
+    margin-bottom: 30px;
+}
+
+.book-list__item {
+    margin-right: 8px;
+}
+
+
+.book-list__link p {
+    font-size: 25px;
+    font-weight: 600;
+    color: #000;
+}
+
+.book-list__link span {
+    background: #f26d7d;
+    padding: 0px 20px;
+    height: 26px;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 22px;
+}
+
+/* sach lop 6 */
+a:hover p {
+    color: var(--primary-color);
+}
+
+/* listen */
+.lesten p:hover {
+    color: var(--primary-color);
+}
+/* menu hightchool */
+
+
+/* seacrch diction */
+
+.diction_span {
+    padding: 9px;
+}
+
+.diction_span:hover {
+    background-color: #888;
+    color: #fff;
+}
+
+.seach__icon {
+    padding-right: 5px;
+}
+
+.diction__list a:hover {
+    color: var(--primary-color);
+}

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', __('labels.pages.admin.users.title.management'))
+@section('title', 'Danh sách người dùng')
 
 @section('content')
     <div class="card">
@@ -8,12 +8,12 @@
             <div class="row">
                 <div class="col-8">
                     <h4 class="card-title mb-0">
-                        @lang('labels.pages.admin.users.title.management')
+                       Danh sách người dùng
                     </h4>
                 </div>
                 <div class="col-4 text-right">
                     @can(\App\Helpers\PermissionConstant::PERMISSION_ADD_MANAGER_USER)
-                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> @lang('labels.pages.admin.users.create_new_user')</a>
+                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tạo mới</a>
                     @endcan
                 </div>
             </div>
@@ -23,10 +23,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <td><strong>@lang('labels.pages.admin.users.table.name')</strong></td>
-                                <td><strong>@lang('labels.pages.admin.users.table.email')</strong></td>
-                                <td><strong>@lang('labels.general.created_at')</strong></td>
-                                <td><strong>@lang('labels.general.action')</strong></td>
+                                <td><strong>Tên</strong></td>
+                                <td><strong>Email</strong></td>
+                                <td><strong>Tạo lúc</strong></td>
+                                <td><strong>Hành động</strong></td>
                             </tr>
                         </thead>
                         <tbody>

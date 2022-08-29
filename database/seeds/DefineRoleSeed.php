@@ -39,19 +39,6 @@ class DefineRoleSeed extends Seeder
         Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_ALL_CATEGORY], []);
         Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_CATEGORY], []);
 
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_VIEW_LIST_ALL_PRODUCT], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_VIEW_LIST_PRODUCT], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_ADD_PRODUCT], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_ALL_PRODUCT], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_PRODUCT], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_ALL_PRODUCT], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_PRODUCT], []);
-
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_ALL_TOKEN_ITEM], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_TOKEN_ITEM], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_ITEM], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_ALL_ITEM], []);
-
         //ADMIN
         $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_BACKEND);
 
@@ -68,27 +55,11 @@ class DefineRoleSeed extends Seeder
         $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_ALL_CATEGORY);
         $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_CATEGORY);
 
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_ALL_PRODUCT);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_PRODUCT);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_ADD_PRODUCT);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_ALL_PRODUCT);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_PRODUCT);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_ALL_PRODUCT);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_PRODUCT);
-
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_ALL_TOKEN_ITEM);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_ALL_ITEM);
-
         //MANAGER
         $roleManager->givePermissionTo(PermissionConstant::PERMISSION_VIEW_BACKEND);
 
         $roleManager->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_CATEGORY);
         $roleManager->givePermissionTo(PermissionConstant::PERMISSION_ADD_CATEGORY);
         $roleManager->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_CATEGORY);
-
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_PRODUCT);
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_ADD_PRODUCT);
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_PRODUCT);
-
     }
 }

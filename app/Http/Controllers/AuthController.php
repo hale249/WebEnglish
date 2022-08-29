@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AuthLoginRequest;
-use App\Http\Requests\AuthRegisterRequest;
+use App\Http\Requests\Admin\AuthLoginRequest;
+use App\Http\Requests\Admin\AuthRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +36,7 @@ class AuthController extends Controller
         ]);
         $remember = $request->input('remember_me');
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('frontend.home')->with('flash_success', __('auth.login_success'));
+            return redirect()->route('admin.dashboard.index')->with('flash_success', __('auth.login_success'));
         }
 
         return redirect()->back()->withErrors([__('auth.failed')]);

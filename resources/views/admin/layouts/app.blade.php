@@ -9,7 +9,7 @@
 
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/backend/app.css">
+    <link rel="stylesheet" href="/css/admin/app.css">
 </head>
 <body>
     <!-- Page Wrapper -->
@@ -54,7 +54,7 @@
     </a>
 
     @include('share.modals.logout')
-    <script src="/js/backend/app.js"></script>
+    <script src="/js/admin/app.js"></script>
     @yield('script')
 </body>
 </html>

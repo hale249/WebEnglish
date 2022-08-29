@@ -1,27 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 
-/**
- * @see \App\Http\Controllers\Backend\ProfileController::profile()
- */
-Route::get('profile', 'ProfileController@index')
+Route::get('profile', [AdminProfileController::class, 'index'])
     ->name('profile.index');
 
-/**
- * @see \App\Http\Controllers\Backend\ProfileController::update()
- */
-Route::put('profile', 'ProfileController@update')
+Route::put('profile', [AdminProfileController::class, 'update'])
     ->name('profile.update');
 
-/**
- * @see \App\Http\Controllers\Backend\ProfileController::showFormChangePassword();
- */
-Route::get('profile/change-password', 'ProfileController@showFormChangePassword')
+Route::get('profile/change-password', [AdminProfileController::class, 'showFormChangePassword'])
     ->name('profile.show_form_change_password');
 
-/**
- * @see \App\Http\Controllers\Backend\ProfileController::changePassword();
- */
-Route::put('profile/change-password', 'ProfileController@changePassword')
+Route::put('profile/change-password', [AdminProfileController::class, 'changePassword'])
     ->name('profile.change_password');

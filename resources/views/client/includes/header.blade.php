@@ -162,6 +162,42 @@
         </ul>
     </div>
 </nav>
+
+<!-- menu - mobile -->
+<div>
+    <label for="mb__nav-laybel" class="mb__menu">
+        <i class="bi bi-list mb__menu-icon"></i>
+    </label>
+
+    <input type="checkbox" name="" hidden class="nav-input" id="mb__nav-laybel">
+
+    <label for="mb__nav-laybel" class="mb__menu-overlay"></label>
+
+    <div class="mb__nav">
+        <ul class="mb__nav-list">
+            <li class="mb__nav-items">
+                <a href="#" class="mb__nav-link">Tiếng anh phổ thông</a>
+            </li>
+            <li class="mb__nav-items">
+                <a href="#" class="mb__nav-link">Kỹ năng</a>
+            </li>
+            <li class="mb__nav-items">
+                <a href="#" class="mb__nav-link">Học qua video</a>
+            </li>
+            <li class="mb__nav-items">
+                <a href="#" class="mb__nav-link">Tra từ điển</a>
+            </li>
+            <li class="mb__nav-items">
+                <a href="#" class="mb__nav-link">Bài viết</a>
+            </li>
+        </ul>
+
+        <label  for="mb__nav-laybel"  class="mb__close">
+            <i class="bi bi-x mb__close-icon"></i>
+        </label>
+    </div>
+</div>
+
 <div class="banner">
     <div class="banner__top">
         <a href="">

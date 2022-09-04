@@ -454,7 +454,7 @@ body {
     margin-top: 50px;
     margin-bottom: 30px;
     background-image: url('https://data.tienganh123.com/images/banner/tacbm_banner_ngang.jpg');
-    background-size: 1300px;
+    background-size: 100%;
     height: 120px;
     background-repeat: no-repeat;
 }
@@ -663,8 +663,8 @@ a {
 }
 
 .lesson-entertainment__img {
-    width: 400px;
-    height: 220px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .lesson-entertainment__img-title {
@@ -972,6 +972,34 @@ a:hover p {
 .lesten p:hover {
     color: var(--primary-color);
 }
+
+/* everyday */
+.answer {
+    margin-left: 108px;
+}
+
+.every__img {
+    padding-left: 28px;
+}
+
+.submit {
+    color: #fff;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: #4F8811;
+    padding: 10px 40px;
+    margin-bottom: 40px;
+}
+
+.submit:hover {
+    color: #fff;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: #4F8811;
+    padding: 10px 40px;
+    margin-bottom: 40px;
+}
+
 /* menu hightchool */
 
 
@@ -992,4 +1020,136 @@ a:hover p {
 
 .diction__list a:hover {
     color: var(--primary-color);
+}
+
+
+/* menu-mobile */
+
+.mb__menu {
+    padding-left: 12px;
+}
+.mb__menu-icon {
+    font-size: 30px;
+}
+
+.mb__menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+
+.mb__nav {
+    z-index: 100;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    max-width: 100%;
+    transform: translateX(-100%);
+    transition: transform linear 0.2s;
+}
+
+.mb__nav-list {
+    margin-top: 60px;
+    list-style: none;
+}
+
+.mb__nav-items {
+    padding: 10px 0;
+}
+
+.mb__nav-link {
+    font-weight: 700px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.mb__close-icon {
+    font-size: 50px;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nav-input:checked ~ .mb__menu-overlay {
+    display: block;
+}
+
+.nav-input:checked ~ .mb__nav {
+    transform: translateX(0);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+/* responsive */
+
+/* mobile  width < 740px*/
+@media only screen and  (max-width: 739px) {
+    /* header-menu */
+    .nav__list {
+        display: none;
+    }
+
+    .mb__menu {
+        display: block;
+    }
+
+
+    /* content */
+
+    .container {
+        padding: 0;
+    }
+
+    .body__lesson {
+        padding : 20px;
+    }
+
+    .body__lesson-title-strong {
+        margin: 15px 0;
+    }
+
+    .lesson__banner {
+        margin-bottom: 0;
+    }
+
+    .lesson__hightschool-link-content {
+        right: 180px;
+    }
+
+}
+
+/* tablet width >= 740px and width < 1024px*/
+@media only screen and (min-width: 740px) and (max-width: 1023px) {
+    .mb__menu {
+        display: none;
+    }
+
+}
+
+/* PC  width >= 1024pxpx*/
+@media only screen and  (min-width: 1024px) {
+    .mb__menu {
+        display: none;
+    }
 }

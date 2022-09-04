@@ -51,6 +51,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.', '
         require __DIR__ . '/admin/user.php';
         require __DIR__ . '/admin/profile.php';
         require __DIR__ . '/admin/category.php';
+        require __DIR__ . '/admin/slider.php';
     });
 });
 

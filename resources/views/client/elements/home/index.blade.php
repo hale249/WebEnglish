@@ -30,7 +30,7 @@
                         </a>
                     </figure>
                 </div>
-                <div class="col-4 p-0 mb-4">
+                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
                         <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
                             <img
@@ -44,7 +44,7 @@
                         </a>
                     </figure>
                 </div>
-                <div class="col-4 p-0 mb-4">
+                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
                         <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
                             <img
@@ -58,7 +58,7 @@
                         </a>
                     </figure>
                 </div>
-                <div class="col-4 p-0 mb-4">
+                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
                         <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
                             <img
@@ -72,7 +72,7 @@
                         </a>
                     </figure>
                 </div>
-                <div class="col-4 p-0 mb-4">
+                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
                         <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
                             <img
@@ -86,7 +86,7 @@
                         </a>
                     </figure>
                 </div>
-                <div class="col-4 p-0 mb-4">
+                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
                         <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
                             <img
@@ -198,7 +198,7 @@
             </div>
             <div class="container text-center">
                 <div class="row">
-                    <div class="col ">
+                    <div class="col-xl-6 col-sm-12">
                         <a href="{{ route('client.book.index') }}" class="lesson__hightschool-link">
                             <img class="lesson__hightschool-link-img w-100"
                                  src="{{ asset('images/hight_school.png') }}" alt="">
@@ -223,7 +223,7 @@
                                 lớp 9 <span class="">9</span></a>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-xl-6 col-sm-12">
                         <a href="" class="lesson__hightschool-link">
                             <img class="lesson__hightschool-link-img w-100"
                                  src="{{ asset('images/fight.png') }}" alt="">
@@ -240,7 +240,7 @@
                 </div>
             </div>
         </div>
-        <div class="point">
+        <div class="point" id="skill">
             <div class="header__title">
                 <a href="" class="body__lesson-link body__lesson-title">
                     LUYỆN KỸ NĂNG
@@ -250,26 +250,26 @@
             </div>
             <div class="container text-center point__content">
                 <div class="row">
-                    <div class="col-3">
-                        <a calss="point-link" href="{{ route('client.video.index') }}">
+                    <div class="col-xl-3 col-sm-6">
+                        <a class="point-link" href="{{ route('client.video.index') }}">
                             <img src="{{ asset('images/ig_lpa.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>phát âm</span></p>
                         </a>
                     </div>
-                    <div class="col-3">
-                        <a calss="point-link" href="{{ route('client.video.index') }}">
+                    <div class="col-xl-3 col-sm-6">
+                        <a class="point-link" href="{{ route('client.video.index') }}">
                             <img src="{{ asset('images/img2.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>nghe</span></p>
                         </a>
                     </div>
-                    <div class="col-3">
-                        <a calss="point-link" href="{{ route('client.video.index') }}">
+                    <div class="col-xl-3 col-sm-6">
+                        <a class="point-link" href="{{ route('client.video.index') }}">
                             <img src="{{ asset('images/ig_ld.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>đọc</span></p>
                         </a>
                     </div>
-                    <div class="col-3">
-                        <a calss="point-link" href="{{ route('client.video.index') }}">
+                    <div class="col-xl-3 col-sm-6">
+                        <a class="point-link" href="{{ route('client.video.index') }}">
                             <img src="{{ asset('images/ig_thcs.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>viết</span></p>
                         </a>
@@ -434,7 +434,7 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12">
                         <div class="lesson-entertainment__film">
                             <a class="lesson-entertainment__link" href="{{ route('client.music.index') }}">
                                 <img class="lesson-entertainment__img"
@@ -473,7 +473,7 @@
                                 bi-chevron-right"></i></a>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12">
                         <div class="lesson-entertainment__film">
                             <a class="lesson-entertainment__link" href="">
                                 <img class="lesson-entertainment__img"

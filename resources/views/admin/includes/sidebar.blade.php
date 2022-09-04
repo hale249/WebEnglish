@@ -48,6 +48,20 @@
         </div>
     </li>
 
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item @if(\Request::is('admin/sliders') || \Request::is('admin/sliders/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-slider-management" aria-expanded="true" aria-controls="menu-slider-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Slider</span>
+        </a>
+        <div id="menu-slider-management" class="collapse @if(\Request::is('admin/sliders') || \Request::is('admin/sliders/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/sliders')) active @endif" href="{{ route('admin.slider.index') }}">Slider</a>
+                <a class="collapse-item @if(\Request::is('admin/sliders/create')) active @endif" href="{{ route('admin.slider.create') }}">Tạo Slider</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

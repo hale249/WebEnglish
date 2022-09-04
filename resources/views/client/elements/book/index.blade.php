@@ -12,7 +12,7 @@
             <div class="book-list">
                 <h3>Tiếng Anh lớp 6</h3>
                 <div class="row text-center">
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -25,7 +25,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -41,7 +41,7 @@
                 </div>
                 <h3>Tiếng Anh lớp 7</h3>
                 <div class="row text-center">
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -54,7 +54,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -70,7 +70,7 @@
                 </div>
                 <h3>Tiếng Anh lớp 8</h3>
                 <div class="row text-center">
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -83,7 +83,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -99,7 +99,7 @@
                 </div>
                 <h3>Tiếng Anh lớp 9</h3>
                 <div class="row text-center">
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">
@@ -112,7 +112,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-xl-6 col-sm-12 p-3">
                         <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
                             <a class="book-list__link" href="{{ route('client.book.lesson', 1) }}">
                                 <div class="book-list__img">

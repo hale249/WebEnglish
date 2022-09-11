@@ -475,13 +475,6 @@ body {
     position: relative;
 }
 
-p {
-    font-size: 25px;
-    line-height: 40px;
-    font-weight: 500;
-
-}
-
 .lesson__hightschool-link:hover span {
     color: var(--primary-color);
 }
@@ -492,7 +485,7 @@ p {
     margin-bottom: 30px;
 }
 
-.lesson__hightschool-link-content {
+.lesson__highschool-link-content {
     position: absolute;
     top: 18px;
     right: 79px;
@@ -1067,7 +1060,7 @@ a:hover p {
 }
 
 .mb__nav-link {
-    font-weight: 700px;
+    font-weight: 700;
     font-size: 20px;
     line-height: 40px;
 }

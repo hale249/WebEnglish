@@ -25,51 +25,14 @@
                 </a>
             </li>
             <li class="nav__item nav__item--before">
-                <a href="{{ route('client.book.index') }}" class="nav__item-link">Tiếng anh phổ thông</a>
+                <a href="#" class="nav__item-link">Tiếng anh phổ thông</a>
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
+                        @foreach($books as $book)
                         <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp
-                                6</a>
+                            <a href="{{ route('client.book.lesson', $book->id) }}" class="sub__nav-item-link">{{ $book->name }}</a>
                         </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp 6 -
-                                Sách
-                                mới</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Giải bài tập SGK
-                                Tiếng
-                                Anh lớp 6 - Sách mới</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp
-                                7</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp 7 -
-                                Sách
-                                mới</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp
-                                8</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp 8 -
-                                Sách
-                                mới</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp
-                                9</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="sub__nav-item-link">Tiếng Anh lớp 9 -
-                                Sách
-                                mới</a>
-                        </li>
-                        <li class="sub__nav-item">
+                        @endforeach
                     </ul>
                 </div>
             </li>
@@ -99,57 +62,14 @@
                 </div>
             </li>
             <li class="nav__item">
-                <a href="{{ route('client.video.index') }}" class="nav__item-link">Học qua video</a>
+                <a href="#" class="nav__item-link">Học qua video</a>
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
-                        <li class="sub__nav-item sub__nav-item--fist-child">
-                            <a href="{{ route('client.video.index') }}" class="sub__nav-item-link
-                        sub__nav-item-link--fist-child">Luyện nghe tiếng Anh</a>
-{{--                            <div class="sub__child">--}}
-{{--                                <ul class="sub__chill-list">--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Arts</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Business</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Interview</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Travel</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Opinion</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Technology</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Entertainment</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="sub__chill-item">--}}
-{{--                                        <a href="" class="sub__chill-item-link">Environment</a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-                        </li>
+                        @foreach($videoCategories as $category)
                         <li class="sub__nav-item">
-                            <a href="{{ route('client.video.index') }}" class="sub__nav-item-link">VOA: English in a
-                                Minute</a>
+                            <a href="{{ route('client.video.index', ['slug' => $category->slug]) }}" class="sub__nav-item-link">{{ $category->name }}</a>
                         </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.video.index') }}" class="sub__nav-item-link">Học tiếng Anh qua
-                                CNN</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.video.index') }}" class="sub__nav-item-link">Học tiếng Anh qua
-                                BBC</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.video.index') }}" class="sub__nav-item-link">Học tiếng Anh qua
-                                Video VOA</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
             </li>
@@ -192,7 +112,7 @@
             </li>
         </ul>
 
-        <label  for="mb__nav-laybel"  class="mb__close">
+        <label for="mb__nav-laybel" class="mb__close">
             <i class="bi bi-x mb__close-icon"></i>
         </label>
     </div>
@@ -215,33 +135,21 @@
         <div id="carouselExampleIndicators" class="carousel slide"
              data-bs-ride="true">
             <div class="carousel-indicators">
-                <button type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="0" class="active" aria-current="true"
-                        aria-label="Slide 1"></button>
-                <button type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="2" aria-label="Slide 3"></button>
+                @foreach($sliders as $key=>$slider)
+                    <button type="button"
+                            data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="{{ $key }}" class="active" aria-current="true"
+                            aria-label="{{$slider->name}}"></button>
+                @endforeach
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img
-                        src="https://data.tienganh123.com/images/v2/home/bg_slide_1.jpg"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img
-                        src="https://data.tienganh123.com/images/v2/home/bg_slide_2.jpg"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img
-                        src="https://data.tienganh123.com/images/v2/home/bg_slide_3.jpg"
-                        class="d-block w-100" alt="...">
-                </div>
+                @foreach($sliders as $key=>$slider)
+                    <div class="carousel-item @if($key== 0)active @endif">
+                        <img
+                            src="{{ $slider->image }}"
+                            class="d-block w-100" alt="...">
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

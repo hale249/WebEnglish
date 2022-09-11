@@ -24,7 +24,8 @@
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
-                                    class="figure-caption__link" href="{{ route('client.unit.detail', 1) }}"><span>1</span>a
+                                    class="figure-caption__link"
+                                    href="{{ route('client.unit.detail', 1) }}"><span>1</span>a
                                     - âm /æ/
                                 </a></figcaption>
                         </a>
@@ -38,7 +39,8 @@
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
-                                    class="figure-caption__link" href="{{ route('client.unit.detail', 1) }}"><span>2</span>b
+                                    class="figure-caption__link"
+                                    href="{{ route('client.unit.detail', 1) }}"><span>2</span>b
                                     - âm /b/
                                 </a></figcaption>
                         </a>
@@ -52,7 +54,8 @@
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
-                                    class="figure-caption__link" href="{{ route('client.unit.detail', 1) }}"><span>3</span>c
+                                    class="figure-caption__link"
+                                    href="{{ route('client.unit.detail', 1) }}"><span>3</span>c
                                     - âm /k/
                                 </a></figcaption>
                         </a>
@@ -66,7 +69,8 @@
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
-                                    class="figure-caption__link" href="{{ route('client.unit.detail', 1) }}"><span>4</span>d
+                                    class="figure-caption__link"
+                                    href="{{ route('client.unit.detail', 1) }}"><span>4</span>d
                                     - âm /d/
                                 </a></figcaption>
                         </a>
@@ -80,7 +84,8 @@
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
-                                    class="figure-caption__link" href="{{ route('client.unit.detail', 1) }}"><span>5</span>e
+                                    class="figure-caption__link"
+                                    href="{{ route('client.unit.detail', 1) }}"><span>5</span>e
                                     - âm /e/
                                 </a></figcaption>
                         </a>
@@ -94,7 +99,8 @@
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
-                                    class="figure-caption__link" href="{{ route('client.unit.detail', 1) }}"><span>6</span>f
+                                    class="figure-caption__link"
+                                    href="{{ route('client.unit.detail', 1) }}"><span>6</span>f
                                     - âm /f/
                                 </a></figcaption>
                         </a>
@@ -219,7 +225,8 @@
                         lesson__hightschool-list">Tiếng Anh lớp 8 <span
                                     class="{{ route('client.book.lesson', 1) }}">8</span></a>
                             <a class="list-group-item d-flex justify-content-between
-                        align-items-center lesson__hightschool-list" href="{{ route('client.book.lesson', 1) }}">Tiếng Anh
+                        align-items-center lesson__hightschool-list" href="{{ route('client.book.lesson', 1) }}">Tiếng
+                                Anh
                                 lớp 9 <span class="">9</span></a>
                         </div>
                     </div>
@@ -251,25 +258,25 @@
             <div class="container text-center point__content">
                 <div class="row">
                     <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="{{ route('client.video.index') }}">
+                        <a class="point-link" href="#">
                             <img src="{{ asset('images/ig_lpa.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>phát âm</span></p>
                         </a>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="{{ route('client.video.index') }}">
+                        <a class="point-link" href="#">
                             <img src="{{ asset('images/img2.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>nghe</span></p>
                         </a>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="{{ route('client.video.index') }}">
+                        <a class="point-link" href="#">
                             <img src="{{ asset('images/ig_ld.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>đọc</span></p>
                         </a>
                     </div>
                     <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="{{ route('client.video.index') }}">
+                        <a class="point-link" href="#">
                             <img src="{{ asset('images/ig_thcs.jpg') }}" alt="" class="point-img">
                             <p class="point-img__content">Luyện <span>viết</span></p>
                         </a>
@@ -288,141 +295,28 @@
             <div class="header__title">
                 <a href="" class="body__lesson-link body__lesson-title">
                     HỌC QUA VIDEO
-                    <a href="{{ route('client.video.index') }}" class=" body__lesson-title"><i
+                    <a href="#" class=" body__lesson-title"><i
                             class="body__lesson-link-logo bi bi-chevron-right"></i></a>
                 </a>
             </div>
-            <ul class="lesson__video-list d-flex justify-content-evenly
-                  bg-light">
-                <li class="lesson__video-item d-flex align-items-center w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href=""><img
-                                class="video__img-img" src="{{ asset('images/video1.png') }}" alt=""></a>
+
+            <div class="row">
+                @foreach($videoCategories as $category)
+                    <div class="col-6 mb-3">
+                        <div class="lesson__video-item d-flex align-items-center">
+                            <div class="video__img">
+                                <a class="video__img-link" href=""><img
+                                        class="video__img-img"
+                                        src="{{ !empty($category->image) ? $category->image : asset('images/video1.png') }}"
+                                        alt=""></a>
+                            </div>
+                            <div class="lesson__video-heading">
+                                <a class="lesson__video-heading-link" href="#">{{ $category->name }}</span></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Luyện nghe
-                            qua<span> Tienganh123 news</span></a>
-                        <div class="sup__div"><i class="bi bi-camera-video-fill"></i><a
-                                href="{{ route('client.video.index') }}" class="lesson__video-heading-suplink">Drivers
-                                can send driving...</a></div>
-                    </div>
-                </li>
-                <li class="lesson__video-item d-flex align-items-center w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images//video2.png') }}" alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Học tiếng
-                            Anh qua<span> VOA NEWS</span></a>
-                        <div class="sup__div"><i class="bi bi-camera-video-fill"></i><a
-                                href="" class="lesson__video-heading-suplink">Silicon
-                                Businesses Fueled by...</a></div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="lesson__video-list d-flex justify-content-evenly">
-                <li class="lesson__video-item d-flex align-items-center w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images/video3.png') }}" alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Học qua
-                            video<span> theo chủ đề</span></a>
-                        <div class="sup__div"><i class="bi bi-camera-video-fill"></i><a
-                                href="" class="lesson__video-heading-suplink">Maria
-                                Contreras-Sweet: Agent...
-                                <br/>(Business)</a></div>
-                    </div>
-                </li>
-                <li class="lesson__video-item d-flex align-items-center
-                      w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images/video4.png') }}" alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Học với<span>
-                            người nổi tiếng</span></a>
-                        <div class="sup__div"><i class="bi
-                            bi-camera-video-fill"></i><a href=""
-                                                         class="lesson__video-heading-suplink">15/10/2016:
-                                Your weekly...
-                                <br/>(Tổng thống Mỹ Obama)</a></div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="lesson__video-list d-flex justify-content-evenly
-                      bg-light">
-                <li class="lesson__video-item d-flex align-items-center
-                        w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images/video5.png') }}"
-                                alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Học
-                            tiếng Anh qua<span> VOV TV</span></a>
-                        <div class="sup__div"><i class="bi
-                              bi-camera-video-fill"></i><a href=""
-                                                           class="lesson__video-heading-suplink">Search for
-                                Cheaper,...</a></div>
-                    </div>
-                </li>
-                <li class="lesson__video-item d-flex align-items-center
-                        w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images/video6.png') }}"
-                                alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Học
-                            tiếng Anh qua<span> Youtube</span></a>
-                        <div class="sup__div"><i class="bi
-                              bi-camera-video-fill"></i><a href=""
-                                                           class="lesson__video-heading-suplink">How to Use
-                                the New York City...</a></div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="lesson__video-list d-flex
-                      justify-content-evenly">
-                <li class="lesson__video-item d-flex align-items-center
-                        w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images/video7.png') }}"
-                                alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Học
-                            tiếng Anh qua<span> video thực tế</span></a>
-                        <div class="sup__div"><i class="bi
-                              bi-camera-video-fill"></i><a href=""
-                                                           class="lesson__video-heading-suplink">Listen and
-                                Repeat - Beginner...</a></div>
-                    </div>
-                </li>
-                <li class="lesson__video-item d-flex align-items-center
-                        w-50">
-                    <div class="video__img">
-                        <a class="video__img-link" href="{{ route('client.video.index') }}"><img
-                                class="video__img-img" src="{{ asset('images/vide08.png') }}"
-                                alt=""></a>
-                    </div>
-                    <div class="lesson__video-heading">
-                        <a class="lesson__video-heading-link" href="{{ route('client.video.index') }}">Luyện
-                            nghe với video <span> TED</span></a>
-                        <div class="sup__div"><i class="bi
-                              bi-camera-video-fill"></i><a href=""
-                                                           class="lesson__video-heading-suplink">Fabian
-                                Hemmert: The shape-shifting...</a></div>
-                    </div>
-                </li>
-            </ul>
+                @endforeach
+            </div>
         </div>
         <div class="lesson-entertainment">
             <div class="header__title">

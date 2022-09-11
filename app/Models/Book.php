@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Attributes\StatusLabelAttribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, StatusLabelAttribute;
 
     protected $table = 'books';
 
@@ -26,6 +27,11 @@ class Book extends Model
         'user_id' => 'integer',
         'is_active' => 'boolean',
         'is_new' => 'boolean',
+        'class_number' => 'integer'
+    ];
+
+    protected $appends = [
+        'status_label'
     ];
 
     public function user(): BelongsTo
@@ -40,9 +46,8 @@ class Book extends Model
     {
         return '
         <div class="btn-group btn-group-sm" role="group" aria-label="Hành động">
-          ' . $this->show_button . '
           ' . $this->edit_button . '
-          ' . $this->delete_button . '
+          ' . $this->show_button . '
         </div>';
     }
 
@@ -59,6 +64,6 @@ class Book extends Model
      */
     public function getShowButtonAttribute(): string
     {
-        return '<a href="' . route('admin.book.show', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
+        return '<a href="' . route('admin.lesson.index', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
     }
 }

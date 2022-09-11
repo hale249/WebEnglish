@@ -2,27 +2,41 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Attributes\TimestampsAttribute;
+use App\Models\Traits\Attributes\StatusLabelAttribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class VideoCategory extends Model
+class Blog extends Model
 {
-    use SoftDeletes, TimestampsAttribute;
-
-    protected $table = 'sliders';
+    use SoftDeletes, StatusLabelAttribute;
 
     protected $fillable = [
-        'name',
-        'slug',
-        'description',
+        'title',
+        'sub_title',
+        'content',
+        'is_active',
+        'image',
         'user_id',
+        'count_viewer'
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean'
+    ];
+
+    protected $appends = [
+        'status_label'
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
 
     /**
@@ -32,7 +46,6 @@ class VideoCategory extends Model
     {
         return '
         <div class="btn-group btn-group-sm" role="group" aria-label="Hành động">
-          ' . $this->show_button . '
           ' . $this->edit_button . '
           ' . $this->delete_button . '
         </div>';
@@ -43,15 +56,7 @@ class VideoCategory extends Model
      */
     public function getEditButtonAttribute(): string
     {
-        return '<a href="' . route('admin.slider.edit', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
-    }
-
-    /**
-     * @return string
-     */
-    public function getShowButtonAttribute(): string
-    {
-        return '<a href="' . route('admin.slider.show', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
+        return '<a href="' . route('admin.blog.edit', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
     }
 
     /**
@@ -59,7 +64,7 @@ class VideoCategory extends Model
      */
     public function getDeleteButtonAttribute(): string
     {
-        return '<a href="' . route('admin.slider.destroy', $this->id) . '"
+        return '<a href="' . route('admin.blog.destroy', $this->id) . '"
                  data-trans-button-cancel="Hủy"
                  data-trans-button-confirm="Xóa"
                  data-trans-title="Chắc chắn bạn muốn xóa?"

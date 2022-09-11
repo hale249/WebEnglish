@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Constant;
+use App\Helpers\PermissionConstant;
+use App\Helpers\Traits\FileHelperTrait;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\BlogStoreRequest;
+use App\Http\Requests\Admin\BlogUpdateRequest;
+use App\Http\Requests\Admin\CategoryStoreRequest;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Video;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class VideoCategoryController extends Controller
 {
+    use FileHelperTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +30,8 @@ class VideoCategoryController extends Controller
     public function index(Request $request): View
     {
         $data = $request->all();
-        $categories = Category::query();
+        $categories = Category::query()
+            ->where('type', Category::VIDEO);
         if (!empty($data['name'])) {
             $categories = $categories->where('name', 'like', '%' . $data['name'] . '%');
         }
@@ -58,32 +72,27 @@ class VideoCategoryController extends Controller
         $data = $request->only([
             'name',
             'description',
+            'is_active',
         ]);
+
+        if (empty($data['is_active'])) {
+            $data['is_active'] = false;
+        }
+
+        $data['type'] = Category::VIDEO;
 
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'categories');
         }
 
         $data['user_id'] = auth()->id();
-        Category::query()
+        $category = Category::query()
             ->create($data);
+        if(empty($category)) {
+            return redirect()->back()->with('flash_danger', 'Cập nhật thất bại');
+        }
 
         return redirect()->route('admin.category.index')->with('flash_success','Tạo danh mục thành công');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return View
-     * @throws AuthorizationException
-     */
-    public function show($id): View
-    {
-        $category = Category::query()->findOrFail($id);
-        $this->authorize('view', $category);
-
-        return view('admin.elements.category.show', compact('category'));
     }
 
     /**
@@ -91,12 +100,11 @@ class VideoCategoryController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
-    public function edit($id): View
+    public function edit($id)
     {
-        $category = Category::query()->findOrFail($id);
-        $this->authorize('update', $category);
+        $category = Category::query()
+            ->where('type', Category::VIDEO)->findOrFail($id);
 
         return view('admin.elements.category.edit', compact('category'));
     }
@@ -114,8 +122,15 @@ class VideoCategoryController extends Controller
         $data = $request->only([
             'name',
             'description',
+            'is_active',
         ]);
-        $category = Category::query()->findOrFail($id);
+        $category = Category::query()
+            ->where('type', Category::VIDEO)
+            ->findOrFail($id);
+        if (empty($data['is_active'])) {
+            $data['is_active'] = false;
+        }
+
         $this->authorize('update', $category);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'categories');
@@ -131,13 +146,14 @@ class VideoCategoryController extends Controller
      *
      * @param int $id
      * @return RedirectResponse
-     * @throws Exception
      */
     public function destroy($id): RedirectResponse
     {
         $category = Category::query()->findOrFail($id);
-        $this->authorize('delete', $category);
-        $category->delete();
+        $isDelete = $category->delete();
+        if (!$isDelete) {
+            return redirect()->route('admin.category.index')->with('flash_danger', 'Xóa bài viết thất bại');
+        }
 
         return redirect()->route('admin.category.index')->with('flash_success', 'Xóa danh mục thành công');
     }

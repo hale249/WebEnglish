@@ -45,19 +45,6 @@ class BookController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return View
-     */
-    public function show($id): View
-    {
-        $book = Book::query()->findOrFail($id);
-
-        return view('admin.elements.book.show', compact('book'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
@@ -65,9 +52,9 @@ class BookController extends Controller
      */
     public function edit($id): View
     {
-        $category = Book::query()->findOrFail($id);
+        $book = Book::query()->findOrFail($id);
 
-        return view('admin.elements.book.edit', compact('category'));
+        return view('admin.elements.book.edit', compact('book'));
     }
 
     /**
@@ -81,7 +68,7 @@ class BookController extends Controller
     {
         $data = $request->only([
             'is_active',
-            'is_new',
+            'name',
             'description',
         ]);
         $book = Book::query()->findOrFail($id);

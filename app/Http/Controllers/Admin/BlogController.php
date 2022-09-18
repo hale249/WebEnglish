@@ -59,9 +59,7 @@ class BlogController extends Controller
             'content',
             'status',
         ]);
-        if (empty($data->is_active)) {
-            $data['is_active'] = false;
-        }
+        $data['is_active'] = !empty($data['is_active']);
 
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'blog');
@@ -105,9 +103,7 @@ class BlogController extends Controller
             'content',
             'is_active',
         ]);
-        if (empty($data->is_active)) {
-            $data['is_active'] = false;
-        }
+        $data['is_active'] = !empty($data['is_active']);
 
         $blog = Blog::query()->findOrFail($id);
         if ($request->hasFile('image')) {

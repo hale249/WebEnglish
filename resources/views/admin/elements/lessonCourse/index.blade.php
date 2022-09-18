@@ -8,11 +8,11 @@
             <div class="row">
                 <div class="col-8">
                     <h4 class="card-title mb-0">
-                        Bài học: {{ $book->name }}
+                        Bài học: {{ $lesson->name }}
                     </h4>
                 </div>
                 <div class="col-4 text-right">
-                    <a href="{{ route('admin.lesson.create', $book->id) }}" class="btn btn-primary btn-sm"><i
+                    <a href="{{ route('admin.book.lesson.course.create', ['id' => $lesson->book_id, 'lessonId' => $lesson->id]) }}" class="btn btn-primary btn-sm"><i
                             class="fas fa-plus"></i> Tạo mới</a>
                 </div>
             </div>
@@ -30,22 +30,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($lessons as $lesson)
+                        @foreach($courses as $course)
                             <tr>
-                                <td>{{ $lesson->name }}</td>
+                                <td>{{ $course->title }}</td>
                                 <td>
-                                    <img src="{{ $lesson->image }}" width="100">
+                                    <img src="{{ $course->image }}" width="100">
                                 </td>
-                                <td>{!! $lesson->status_label !!}</td>
-                                <td>{{ $lesson->created_at }}</td>
-                                <td>{!! $lesson->action_buttons !!}</td>
+                                <td>{!! $course->status_label !!}</td>
+                                <td>{{ $course->created_at }}</td>
+                                <td>{!! $course->action_buttons !!}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="text-right">
-                    {{ $lessons->links() }}
+                    {{ $courses->links() }}
                 </div>
             </div>
         </div>

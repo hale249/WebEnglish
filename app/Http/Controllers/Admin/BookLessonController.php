@@ -51,10 +51,7 @@ class BookLessonController extends Controller
 
         $data['book_id'] = $bookId;
 
-        if (empty($data->is_active)) {
-            $data['is_active'] = false;
-        }
-
+        $data['is_active'] = !empty($data['is_active']);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'lessons');
         }
@@ -66,7 +63,7 @@ class BookLessonController extends Controller
             return redirect()->back()->with('flash_danger', 'Tạo thất bại');
         }
 
-        return redirect()->route('admin.lesson.index', $bookId)->with('flash_success', 'Tạo bài học thành công');
+        return redirect()->route('admin.book.lesson.index', $bookId)->with('flash_success', 'Tạo bài học thành công');
     }
 
     public function edit($bookId, $lessonId)
@@ -86,9 +83,7 @@ class BookLessonController extends Controller
             'name',
             'is_active',
         ]);
-        if (empty($data->is_active)) {
-            $data['is_active'] = false;
-        }
+        $data['is_active'] = !empty($data['is_active']);
 
         $lesson = BookLessons::query()->where('book_id', $bookId)
             ->where('id', $lessonId)->first();
@@ -105,7 +100,7 @@ class BookLessonController extends Controller
             return redirect()->back()->with('flash_danger', 'Cập nhật thất bại');
         }
 
-        return redirect()->route('admin.lesson.index', $bookId)->with('flash_success', 'Cập nhật bài học thành công');
+        return redirect()->route('admin.book.lesson.index', $bookId)->with('flash_success', 'Cập nhật bài học thành công');
     }
 
     public function destroy($bookId, $lessonId)
@@ -123,6 +118,6 @@ class BookLessonController extends Controller
             return redirect()->back()->with('flash_danger', 'Xóa thất bại');
         }
 
-        return redirect()->route('admin.lesson.index', $bookId)->with('flash_success', 'Xóa bài học thành công');
+        return redirect()->route('admin.book.lesson.index', $bookId)->with('flash_success', 'Xóa bài học thành công');
     }
 }

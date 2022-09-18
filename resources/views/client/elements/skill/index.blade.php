@@ -1,12 +1,12 @@
 @extends('client.layouts.app')
 
-@section('title', 'Unit')
+@section('title', 'Kỹ năng')
 
 @section('content')
     <div class="container container__background">
         <div class="learn-america">
             <h1 class="learn-america__headding">
-                Học phát âm với giáo viên Mỹ
+                {{ $category->name ?? 'Danh sách bài học' }}
             </h1>
             <div class="row align-items-center">
                 <div class="col">
@@ -71,82 +71,26 @@
         </div>
         <div class="list">
             <h2>Danh sách bài học</h2>
-            <p class="font-size">Có <strong>92</strong> bài học phát âm </p>
-            <p class="font-size">Đầy đủ tất cả các phụ âm, nguyên âm đơn, đôi,
-                trọng âm, nối âm, ngữ điệu trong tiếng Anh.</p>
+            <p class="font-size">Có <strong>{{ $count }}</strong> bài học {{ $category->name ?? '' }} </p>
+            <p class="font-size">{{ $category->description ?? '' }}</p>
             <div class="row">
+
+                @foreach($skills as $skill)
                 <div class="col-4 col4__video">
-                    <video width="100%" height="240" controls>
-                        <source src="{{ asset('video/unit1_video1.mp4') }}" type="video/mp4">
-                    </video>
+                    <img srcset="{{ $skill->image }}" width="100%" height="240">
                     <div class="sub-video">
-                        <a class="sub-video__link" href="{{ route('client.unit.detail', 1) }}">Unit 1: a - âm /æ/</a>
-                        <div class="sub-video__stick">
-                            <i class="bi bi-bookmark-fill sub-video__link-logo"></i>
-                            Học miễn phí
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col4__video">
-                    <video width="100%" height="240" controls>
-                        <source src="{{ asset('video/unit2_video1_nonvip.mp4') }}" type="video/mp4">
-                    </video>
-                    <div class="sub-video">
-                        <a class="sub-video__link" href="{{ route('client.unit.detail', 1) }}">Unit 2: b - âm /b/</a>
-                        <div class="sub-video__stick--yellow ">
+                        @if($skill->is_login)
+                            <a class="sub-video__link" href="{{ route('client.skill.detail', $skill->id) }}">{{ $skill->name }}</a>
+                        @else
+                            <a class="sub-video__link" href="#">{{ $skill->name }}</a>
+                        @endif
+                        <div class="@if(!$skill->is_login) sub-video__stick @else sub-video__stick--yellow @endif">
                             <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                            Học thử
+                            @if(!$skill->is_login) Học miễn phí @else Đăng nhập để học @endif
                         </div>
                     </div>
                 </div>
-                <div class="col-4 col4__video">
-                    <video width="100%" height="240" controls>
-                        <source src="{{ asset('video/unit3_video1_nonvip.mp4') }}" type="video/mp4">
-                    </video>
-                    <div class="sub-video">
-                        <a class="sub-video__link" href="{{ route('client.unit.detail', 1) }}">Unit 3: c - âm /k/</a>
-                        <div class="sub-video__stick--yellow ">
-                            <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                            Học thử
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col4__video">
-                    <video width="100%" height="240" controls>
-                        <source src="{{ asset('video/unit4_video1_nonvip.mp4') }}" type="video/mp4">
-                    </video>
-                    <div class="sub-video">
-                        <a class="sub-video__link" href="{{ route('client.unit.detail', 1) }}">Unit 4: d - âm /d/</a>
-                        <div class="sub-video__stick--yellow ">
-                            <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                            Học thử
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col4__video">
-                    <video width="100%" height="240" controls>
-                        <source src="{{ asset('video/unit5_video1_nonvip.mp4') }}" type="video/mp4">
-                    </video>
-                    <div class="sub-video">
-                        <a class="sub-video__link" href="{{ route('client.unit.detail', 1) }}">Unit 5: e - âm /e/</a>
-                        <div class="sub-video__stick--yellow ">
-                            <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                            Học thử
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 col4__video">
-                    <video width="100%" height="240" controls>
-                        <source src="{{ asset('video/unit6_video1_nonvip.mp4') }}" type="video/mp4">
-                    </video>
-                    <div class="sub-video">
-                        <a class="sub-video__link" href="{{ route('client.unit.detail', 1) }}">Unit 6: f - âm /f/</a>
-                        <div class="sub-video__stick--yellow ">
-                            <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                            Học thử
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

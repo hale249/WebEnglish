@@ -12,7 +12,7 @@
                     </h4>
                 </div>
                 <div class="col-4 text-right">
-                    <a href="{{ route('admin.lesson.create', $book->id) }}" class="btn btn-primary btn-sm"><i
+                    <a href="{{ route('admin.book.lesson.create', $book->id) }}" class="btn btn-primary btn-sm"><i
                             class="fas fa-plus"></i> Tạo mới</a>
                 </div>
             </div>

@@ -50,7 +50,7 @@ class VideoController extends Controller
 
     public function create()
     {
-        $categories = Category::query()->where('type', Category::VIDEO)->get();
+        $categories = Category::query()->get();
 
         return view('admin.elements.video.create', compact('categories'));
     }
@@ -64,19 +64,18 @@ class VideoController extends Controller
             'content_translate',
             'category_id',
             'is_active',
+            'link_video',
         ]);
-        if (empty($data->is_active)) {
-            $data['is_active'] = false;
-        }
+        $data['is_active'] = !empty($data['is_active']);
 
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'video');
         }
 
         $data['user_id'] = auth()->id();
-        $blog = Blog::query()
+        $video = Video::query()
             ->create($data);
-        if (empty($blog)) {
+        if (empty($video)) {
             return redirect()->back()->with('flash_danger', 'Tạo thất bại');
         }
 
@@ -91,9 +90,10 @@ class VideoController extends Controller
      */
     public function edit($id): View
     {
-        $blog = Blog::query()->findOrFail($id);
+        $video = Video::query()->findOrFail($id);
+        $categories = Category::query()->get();
 
-        return view('admin.elements.video.edit', compact('blog'));
+        return view('admin.elements.video.edit', compact('video', 'categories'));
     }
 
     /**
@@ -109,20 +109,21 @@ class VideoController extends Controller
             'title',
             'sub_title',
             'content',
+            'content_translate',
+            'category_id',
             'is_active',
+            'link_video',
         ]);
-        if (empty($data->is_active)) {
-            $data['is_active'] = false;
-        }
+        $data['is_active'] = !empty($data['is_active']);
 
-        $blog = Blog::query()->findOrFail($id);
+        $video = Video::query()->findOrFail($id);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'blog');
         }
 
-        $blog = $blog->update($data);
+        $video = $video->update($data);
 
-        if (!$blog) {
+        if (!$video) {
             return redirect()->back()->with('flash_danger', 'Cập nhật thất bại');
         }
 
@@ -130,15 +131,14 @@ class VideoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
+     * @param $id
      * @return RedirectResponse
+     * @throws \Exception
      */
     public function destroy($id): RedirectResponse
     {
-        $category = Blog::query()->findOrFail($id);
-        $isDelete = $category->delete();
+        $video = Video::query()->findOrFail($id);
+        $isDelete = $video->delete();
         if (!$isDelete) {
             return redirect()->route('admin.video.index')->with('flash_danger', 'Xóa bài viết thất bại');
         }

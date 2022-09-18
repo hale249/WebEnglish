@@ -5,7 +5,7 @@
 @section('content')
     <div class="body__lesson">
         <div class="header__title">
-            <a href="{{ route('client.unit.index') }}" class="body__lesson-link body__lesson-title">
+            <a href="{{ route('client.skill.index') }}" class="body__lesson-link body__lesson-title">
                 HỌC PHÁT ÂM TIẾNG ANH <span>VỚI GIÁO VIÊN MỸ</span>
                 <a href="" class=" body__lesson-title"><i
                         class="body__lesson-link-logo bi bi-chevron-right"></i></a>
@@ -18,14 +18,14 @@
             <div class="row">
                 <div class="col-4 p-0 mb-4">
                     <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
+                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
                             <img
                                 src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit1.png"
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
                                     class="figure-caption__link"
-                                    href="{{ route('client.unit.detail', 1) }}"><span>1</span>a
+                                    href="{{ route('client.skill.detail', 1) }}"><span>1</span>a
                                     - âm /æ/
                                 </a></figcaption>
                         </a>
@@ -33,14 +33,14 @@
                 </div>
                 <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
+                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
                             <img
                                 src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit2.png"
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
                                     class="figure-caption__link"
-                                    href="{{ route('client.unit.detail', 1) }}"><span>2</span>b
+                                    href="{{ route('client.skill.detail', 1) }}"><span>2</span>b
                                     - âm /b/
                                 </a></figcaption>
                         </a>
@@ -48,14 +48,14 @@
                 </div>
                 <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
+                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
                             <img
                                 src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit3.png"
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
                                     class="figure-caption__link"
-                                    href="{{ route('client.unit.detail', 1) }}"><span>3</span>c
+                                    href="{{ route('client.skill.detail', 1) }}"><span>3</span>c
                                     - âm /k/
                                 </a></figcaption>
                         </a>
@@ -63,14 +63,14 @@
                 </div>
                 <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
+                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
                             <img
                                 src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit4.png"
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
                                     class="figure-caption__link"
-                                    href="{{ route('client.unit.detail', 1) }}"><span>4</span>d
+                                    href="{{ route('client.skill.detail', 1) }}"><span>4</span>d
                                     - âm /d/
                                 </a></figcaption>
                         </a>
@@ -78,14 +78,14 @@
                 </div>
                 <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
+                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
                             <img
                                 src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit5.png"
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
                                     class="figure-caption__link"
-                                    href="{{ route('client.unit.detail', 1) }}"><span>5</span>e
+                                    href="{{ route('client.skill.detail', 1) }}"><span>5</span>e
                                     - âm /e/
                                 </a></figcaption>
                         </a>
@@ -93,14 +93,14 @@
                 </div>
                 <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
                     <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.unit.detail', 1) }}">
+                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
                             <img
                                 src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit6.png"
                                 class="figure-img img-fluid rounded body__lesson-img"
                                 alt="...">
                             <figcaption class="figure-caption"><a
                                     class="figure-caption__link"
-                                    href="{{ route('client.unit.detail', 1) }}"><span>6</span>f
+                                    href="{{ route('client.skill.detail', 1) }}"><span>6</span>f
                                     - âm /f/
                                 </a></figcaption>
                         </a>
@@ -206,43 +206,23 @@
                 <div class="row">
                     <div class="col-xl-6 col-sm-12">
                         <a href="{{ route('client.book.index') }}" class="lesson__hightschool-link">
-                            <img class="lesson__hightschool-link-img w-100"
-                                 src="{{ asset('images/hight_school.png') }}" alt="">
-                            <span class="lesson__hightschool-link-content">Tiếng Anh<br/>trung
-                        học cở sở</span>
+                            <img class="lesson__hightschool-link-img w-100 h-100" src="{{ asset('images/hight_school.png') }}"
+                                 alt="">
+                            <span class="lesson__hightschool-link-content">Tiếng Anh<br>trung
+                      học cở sở</span>
                         </a>
-                        <div class="list-group list-group__color ">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex
-                        justify-content-between align-items-center
-                        lesson__hightschool-list">Tiếng Anh lớp 6 <span
-                                    class="">6</span></a>
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex
-                        justify-content-between align-items-center
-                        lesson__hightschool-list">Tiếng Anh lớp 7 <span
-                                    class="">7</span></a>
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex
-                        justify-content-between align-items-center
-                        lesson__hightschool-list">Tiếng Anh lớp 8 <span
-                                    class="{{ route('client.book.lesson', 1) }}">8</span></a>
-                            <a class="list-group-item d-flex justify-content-between
-                        align-items-center lesson__hightschool-list" href="{{ route('client.book.lesson', 1) }}">Tiếng
-                                Anh
+                    </div>
+                    <div class="col-xl-6 col-sm-12 ">
+                        <div class="list-group">
+                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
+                                Tiếng Anh lớp 6 <span class="">6</span>
+                            </a>
+                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
+                                Tiếng Anh lớp 7 <span class="">7</span></a>
+                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">Tiếng Anh lớp 8 <span class="">8</span></a>
+                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">Tiếng Anh
                                 lớp 9 <span class="">9</span></a>
                         </div>
-                    </div>
-                    <div class="col-xl-6 col-sm-12">
-                        <a href="" class="lesson__hightschool-link">
-                            <img class="lesson__hightschool-link-img w-100"
-                                 src="{{ asset('images/fight.png') }}" alt="">
-                            <span class="lesson__hightschool-link-content">Thi đấu<br/>Tiếng
-                          Anh sơ sở</span>
-                        </a>
-                        <p>Chương trình thi đấu Tiếng Anh đối kháng trực tiếp dành
-                            cho các bạn học sinh từ lớp 6 đến lớp 9.</p>
-                        <a href="" class="lesson__hightschool-btn">
-                        <span>Vào thi đấu<i class="lesson__hightschool-btn-logo
-                            bi bi-chevron-right"></i></span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -331,76 +311,32 @@
                     <div class="col-xl-6 col-sm-12">
                         <div class="lesson-entertainment__film">
                             <a class="lesson-entertainment__link" href="{{ route('client.music.index') }}">
-                                <img class="lesson-entertainment__img"
-                                     src="{{ asset('images/music.png') }}" alt="">
+                                <img class="lesson-entertainment__img" src="{{ asset('images/music.png') }}">
                                 <div class="lesson-entertainment__img-title">
-                                    <h4
-                                        class="lesson-entertainment__img-title-headding">Học
+                                    <h4 class="lesson-entertainment__img-title-headding">Học
                                         tiếng Anh qua bài hát</h4>
-                                    <span><i class="bi bi-music-note-beamed
-                                    lesson-entertainment__img-title-icon"></i></span>Titanium
+                                    <span><i class="bi bi-music-note-beamed lesson-entertainment__img-title-icon"></i></span>Titanium
                                 </div>
                             </a>
-                        </div>
-                        <div class="list">
-                            <div class="list__music">
-                                <a href="{{ route('client.music.detail', 1) }}">
-                                <span class="list__content"><i class="bi
-                                    bi-music-note-beamed
-                                    lesson-entertainment__img-title-icon"></i>If
-                                  You're Not The One</span>
-                                    <span class="list__sub">(71084 lượt nghe)</span>
-                                </a>
-                            </div>
-                            <div class="list__music">
-                                <a href="{{ route('client.music.index') }}">
-                                <span class="list__content"><i class="bi
-                                    bi-music-note-beamed
-                                    lesson-entertainment__img-title-icon"></i>Let
-                                  It Go</span>
-                                    <span class="list__sub">(181789 lượt nghe)</span>
-                                </a>
-                            </div>
-                            <a href="{{ route('client.music.detail', 1) }}" id="logo"
-                               class="body__lesson-footer-btn"><span>Xem thêm</span><i
-                                    class="body__lesson-link-logo bi
-                                bi-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-sm-12">
-                        <div class="lesson-entertainment__film">
-                            <a class="lesson-entertainment__link" href="">
-                                <img class="lesson-entertainment__img"
-                                     src="{{ asset('images/trailer.png') }}" alt="">
-                                <div class="lesson-entertainment__img-title">
-                                    <h4
-                                        class="lesson-entertainment__img-title-headding">Học
-                                        tiếng Anh qua trailer phim</h4>
-                                    <span><i class="bi bi-film
-                                    lesson-entertainment__img-title-icon"></i></span>Học
-                                    tiếng Anh qua phim Trailler
-                                </div>
-                            </a>
-                        </div>
                         <div class="list">
-                            <div class="list__music">
-                                <a href="{{ route('client.music.index') }}">
-                                <span class="list__content"><i class="bi bi-film
-                                    lesson-entertainment__img-title-icon"></i>The
-                                  Fault in Our Stars</span>
-                                </a>
-                            </div>
-                            <div class="list__music">
-                                <a href="{{ route('client.music.detail', 1) }}">
-                                <span class="list__content"><i class="bi bi-film
-                                    lesson-entertainment__img-title-icon"></i>X-Men:
-                                  Days of Future Past</span>
-                                </a>
-                            </div>
-                            <a href="" id="logo"
-                               class="body__lesson-footer-btn"><span>Xem thêm</span><i
-                                    class="body__lesson-link-logo bi
-                                bi-chevron-right"></i></a>
+                            @foreach($musics as $music)
+                                <div class="list__music">
+                                    <a href="{{ route('client.music.detail', $music->id) }}">
+                            <span class="list__content"><i class="bi bi-music-note-beamed lesson-entertainment__img-title-icon"></i>
+                              {{ $music->title }}</span>
+{{--                                        <span class="list__sub">(784 lượt nghe)</span>--}}
+                                    </a>
+                                </div>
+                            @endforeach
+
+                            @if(count($musics) >= 4)
+                            <a href="{{ route('client.music.index') }}" id="logo" class="body__lesson-footer-btn"><span>Xem thêm</span>
+                                <i class="body__lesson-link-logo bi bi-chevron-right"></i>
+                            </a>
+                                @endif
                         </div>
                     </div>
                 </div>

@@ -73,7 +73,7 @@
                     <label class="col-md-2 form-control-label" for="content">Nội dung dịch</label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" name="content_translate" id="content-text"
+                        <textarea class="form-control" name="content_translate" id="description-text"
                                   placeholder="Nhập nội dung video bài học" rows="10">{{ old('content_translate') }}</textarea>
                     </div><!--col-->
                 </div>
@@ -82,7 +82,7 @@
                     <label class="col-md-2 form-control-label" for="is_active">Trạng thái</label>
 
                     <div class="col-md-10">
-                        <input type="checkbox" data-on="Show" value="{{ old('status') }}" data-off="Hidden"
+                        <input type="checkbox" data-on="Hiện" value="1" data-off="Ẩn"
                                name="is_active" id="is_active" checked data-toggle="toggle" data-onstyle="primary">
                     </div><!--col-->
                 </div>

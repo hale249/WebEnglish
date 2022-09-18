@@ -64,6 +64,6 @@ class Book extends Model
      */
     public function getShowButtonAttribute(): string
     {
-        return '<a href="' . route('admin.lesson.index', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
+        return '<a href="' . route('admin.book.lesson.index', $this->id) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
     }
 }

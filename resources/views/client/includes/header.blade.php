@@ -29,35 +29,24 @@
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
                         @foreach($books as $book)
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.book.lesson', $book->id) }}" class="sub__nav-item-link">{{ $book->name }}</a>
-                        </li>
+                            <li class="sub__nav-item">
+                                <a href="{{ route('client.book.lesson', $book->id) }}"
+                                   class="sub__nav-item-link">{{ $book->name }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
             </li>
             <li class="nav__item">
-                <a href="{{ route('client.unit.index') }}" class="nav__item-link">Kỹ năng</a>
+                <a href="{{ route('client.skill.index') }}" class="nav__item-link">Kỹ năng</a>
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.unit.index') }}" class="sub__nav-item-link">Phát âm tiếng Anh</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.unit.index') }}" class="sub__nav-item-link">Ngữ pháp tiếng Anh</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.unit.index') }}" class="sub__nav-item-link">Từ vựng tiếng Anh</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.unit.index') }}" class="sub__nav-item-link">Nghe</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.unit.index') }}" class="sub__nav-item-link">Đọc</a>
-                        </li>
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.unit.index') }}" class="sub__nav-item-link">Viết</a>
-                        </li>
+                        @foreach($skillCategories as $category)
+                            <li class="sub__nav-item">
+                                <a href="{{ route('client.skill.index', ['category_id' => $category->id]) }}"
+                                   class="sub__nav-item-link">{{ $category->name }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </li>
@@ -66,9 +55,10 @@
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
                         @foreach($videoCategories as $category)
-                        <li class="sub__nav-item">
-                            <a href="{{ route('client.video.index', ['slug' => $category->slug]) }}" class="sub__nav-item-link">{{ $category->name }}</a>
-                        </li>
+                            <li class="sub__nav-item">
+                                <a href="{{ route('client.video.index', ['slug' => $category->slug]) }}"
+                                   class="sub__nav-item-link">{{ $category->name }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

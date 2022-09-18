@@ -45,6 +45,7 @@ class BookLessons extends Model
     {
         return '
         <div class="btn-group btn-group-sm" role="group" aria-label="Hành động">
+          ' . $this->show_button . '
           ' . $this->edit_button . '
           ' . $this->delete_button . '
         </div>';
@@ -55,7 +56,15 @@ class BookLessons extends Model
      */
     public function getEditButtonAttribute(): string
     {
-        return '<a href="' . route('admin.lesson.edit', ['id' => $this->book_id, 'lessonId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
+        return '<a href="' . route('admin.book.lesson.edit', ['id' => $this->book_id, 'lessonId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
+    }
+
+    /**
+     * @return string
+     */
+    public function getShowButtonAttribute(): string
+    {
+        return '<a href="' . route('admin.book.lesson.course.index', ['id' => $this->book_id, 'lessonId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
     }
 
     /**
@@ -63,7 +72,7 @@ class BookLessons extends Model
      */
     public function getDeleteButtonAttribute(): string
     {
-        return '<a href="' . route('admin.lesson.destroy', ['id' => $this->book_id, 'lessonId' => $this->id]) . '"
+        return '<a href="' . route('admin.book.lesson.destroy', ['id' => $this->book_id, 'lessonId' => $this->id]) . '"
                  data-trans-button-cancel="Hủy"
                  data-trans-button-confirm="Xóa"
                  data-trans-title="Chắc chắn bạn muốn xóa?"

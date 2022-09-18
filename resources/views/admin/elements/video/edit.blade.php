@@ -75,7 +75,7 @@
                     <label class="col-md-2 form-control-label" for="content">Nội dung dịch</label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" name="content_translate" id="content-text"
+                        <textarea class="form-control" name="content_translate" id="description-text"
                                   placeholder="Nhập nội dung video bài học" rows="10">{{ $video->content_translate }}</textarea>
                     </div><!--col-->
                 </div>
@@ -84,8 +84,8 @@
                     <label class="col-md-2 form-control-label" for="is_active">Trạng thái</label>
 
                     <div class="col-md-10">
-                        <input type="checkbox" data-on="Show" value="{{ $blog->is_active ? 1 : 0 }}"
-                               @if($blog->is_active) checked @endif data-off="Hidden" name="is_active" id="is_active"
+                        <input type="checkbox" data-on="Hiện" value="1"
+                               @if($blog->is_active) checked @endif data-off="Ẩn" name="is_active" id="is_active"
                                data-toggle="toggle" data-onstyle="primary">
                     </div><!--col-->
                 </div>

@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-success btn-sm">@lang('labels.pages.admin.users.form.update_submit')</button>
+                        <button type="submit" class="btn btn-success btn-sm">Cập nhật</button>
                     </div>
                 </div>
             </div>

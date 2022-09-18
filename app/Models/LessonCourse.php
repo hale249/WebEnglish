@@ -10,23 +10,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class LessonCourse extends Model
 {
     use SoftDeletes, StatusLabelAttribute;
-    protected $table = 'videos';
+
+    protected $table = 'lesson_courses';
 
     protected $fillable = [
         'title',
         'sub_title',
-        'content',
         'image',
         'link_video',
-        'content_translate',
+        'description',
         'user_id',
         'lesson_id',
-        'is_active'
+        'is_active',
+        'is_exercise',
     ];
 
     protected $casts = [
         'user_id' => 'integer',
         'is_active' => 'boolean',
+        'is_exercise' => 'boolean',
         'lesson_id' => 'integer',
     ];
 
@@ -37,6 +39,11 @@ class LessonCourse extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function lesson(): BelongsTo
+    {
+        return $this->belongsTo(BookLessons::class, 'lesson_id', 'id');
     }
 
     /**
@@ -56,15 +63,33 @@ class LessonCourse extends Model
      */
     public function getEditButtonAttribute(): string
     {
-        return '<a href="' . route('admin.lesson.edit', ['lessonId' => $this->lesson_id, 'courseId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
+        if (empty($this->lesson)) {
+            return '';
+        }
+        return '<a href="' . route('admin.book.lesson.course.edit', ['id' => $this->lesson->book_id, 'lessonId' => $this->lesson_id, 'courseId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
     }
+
+//    /**
+//     * @return string
+//     */
+//    public function getShowButtonAttribute(): string
+//    {
+//        if (empty($this->lesson)) {
+//            return '';
+//        }
+//        return '<a href="' . route('admin.book.lesson.course.index', ['id' => $this->lesson->book_id, 'lessonId' => $this->lesson_id, 'courseId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Show" class="btn btn-success btn-sm"><i class="fas fa-info-circle"></i></a>';
+//    }
+
 
     /**
      * @return string
      */
     public function getDeleteButtonAttribute(): string
     {
-        return '<a href="' . route('admin.course.destroy', ['lessonId' => $this->lesson_id, 'courseId' => $this->id]) . '"
+        if (empty($this->lesson)) {
+            return '';
+        }
+        return '<a href="' . route('admin.book.lesson.course.destroy', ['id' => $this->lesson->book_id, 'lessonId' => $this->lesson_id, 'courseId' => $this->id]) . '"
                  data-trans-button-cancel="Hủy"
                  data-trans-button-confirm="Xóa"
                  data-trans-title="Chắc chắn bạn muốn xóa?"

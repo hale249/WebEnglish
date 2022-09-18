@@ -25,7 +25,7 @@ class BookUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg'
+            'image' => 'image|mimes:jpeg,png,jpg'
         ];
     }
 

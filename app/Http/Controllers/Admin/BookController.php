@@ -71,6 +71,8 @@ class BookController extends Controller
             'name',
             'description',
         ]);
+
+        $data['is_active'] = !empty($data['is_active']);
         $book = Book::query()->findOrFail($id);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'books');

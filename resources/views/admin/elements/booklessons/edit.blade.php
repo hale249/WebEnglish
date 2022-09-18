@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.lesson.update', ['id' => $book->id, 'lessonId' => $lesson->id]) }}" method="POST"
+        <form action="{{ route('admin.book.lesson.update', ['id' => $book->id, 'lessonId' => $lesson->id]) }}" method="POST"
               enctype="multipart/form-data">
             @method('put')
             @csrf
@@ -36,8 +36,8 @@
                     <label class="col-md-2 form-control-label" for="is_active">Trạng thái</label>
 
                     <div class="col-md-10">
-                        <input type="checkbox" data-on="Show" value="{{ $lesson->is_active ? 1 : 0 }}"
-                               @if($lesson->is_active) checked @endif data-off="Hidden" name="is_active" id="is_active"
+                        <input type="checkbox" data-on="Hiện" value="1"
+                               @if($lesson->is_active) checked @endif data-off="Ẩn" name="is_active" id="is_active"
                                data-toggle="toggle" data-onstyle="primary">
                     </div><!--col-->
                 </div>
@@ -45,7 +45,7 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.lesson.index', $book->id) }}" class="btn btn-danger btn-sm">Hủy</a>
+                        <a href="{{ route('admin.book.lesson.index', $book->id) }}" class="btn btn-danger btn-sm">Hủy</a>
                     </div>
 
                     <div class="col text-right">

@@ -13,22 +13,25 @@
         <div class="row">
             @if(count($lessons) > 0)
                 @foreach($lessons as $lesson)
-                    <div class="col-md-4 border shadow-sm mb-5 bg-body rounded-1">
-                        <a href="">
-                            <img
-                                class="p-4"
-                                src="{{ $lesson->image }}"
-                                width="100%"
-                                height="auto"
-                                alt=""
-                            />
-                            <p class="fs-5 text">{{ $lesson->name }}</p>
-                        </a>
+                    <div class="col-xl-4 col-sm-4 p-2">
+                        <div class="border">
+                            <a href="">
+                                <img class="pt-3 pb-4" src="{{ $lesson->image }}"
+                                     width="100%" height="auto" alt="">
+                                <p class="fs-5 text text-center">{{ $lesson->name }}</p>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
             @else
                 @include('share.empty')
             @endif
+        </div>
+
+        <div class="row gap-4">
+            <div class="col-4">1</div>
+            <div class="col-4">2</div>
+            <div class="col-4">3</div>
         </div>
     </div>
 @endsection

@@ -475,6 +475,15 @@ body {
     position: relative;
 }
 
+.lesson__hightschool-link-content {
+    position: absolute;
+    top: 18px;
+    right: 79px;
+    font-size: 40px;
+    line-height: 50px;
+    color: #fff;
+}
+
 .lesson__hightschool-link:hover span {
     color: var(--primary-color);
 }
@@ -482,7 +491,6 @@ body {
 .lesson__hightschool-link-img {
     width: 400px;
     position: relative;
-    margin-bottom: 30px;
 }
 
 .lesson__highschool-link-content {
@@ -498,11 +506,9 @@ body {
 }
 
 .lesson__hightschool-list {
-    padding: 0;
     font-size: 20px;
     line-height: 42px;
     font-weight: 500;
-    padding-left: 40px;
 }
 
 .lesson__hightschool-list:hover{
@@ -519,8 +525,6 @@ body {
     background-color: #247ba0;
     color: #fff;
     border-radius: 50%;
-    margin-right: 20px;
-
 }
 
 .lesson__hightschool-num {

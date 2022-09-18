@@ -25,7 +25,7 @@ class SliderUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'nullable|required|image|mimes:jpeg,png,jpg,gif,svg'
+            'image' => 'nullable|required|image|mimes:jpeg,png,jpg'
         ];
     }
 

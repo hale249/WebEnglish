@@ -26,6 +26,7 @@ class LessonCourseUpdateRequest extends FormRequest
         return [
             'title' => 'required',
             'sub_title' => 'required',
+            'link_video'=> 'required',
             'image' => 'nullable|image:jpeg,jpg,png',
         ];
     }

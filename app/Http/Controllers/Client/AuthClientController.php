@@ -26,7 +26,7 @@ class AuthClientController extends Controller
             'password'
         ]);
         $remember = $request->input('remember_me');
-        if (Auth::attempt($credentials, $remember)) {
+        if (Auth::guard('client')->attempt($credentials, $remember)) {
             return redirect()->route('client.home.index')->with('flash_success', 'Thành công');
         }
 
@@ -48,7 +48,10 @@ class AuthClientController extends Controller
         ]);
         $data['password'] = Hash::make($data['password']);
 
-        Client::query()->create($data);
+        $client = Client::query()->create($data);
+        if (empty($client)) {
+            return redirect()->back()->withErrors([__('auth.failed')]);
+        }
 
         return redirect()->route('client.home.index')->with('flash_success', 'Tạo tài khoản thành công');
     }

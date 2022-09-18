@@ -28,13 +28,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $sliders = Slider::query()->get();
-        $books = Book::query()->where('is_active', true)->get();
-        $videoCategories = Category::query()->where('is_active', true)->get();;
-        $skillCategories = SkillCategory::query()->where('is_active', true)->get();;
-        View::share('sliders', $sliders);
-        View::share('books', $books);
-        View::share('videoCategories', $videoCategories);
-        View::share('skillCategories', $skillCategories);
+//        $sliders = Slider::query()->get();
+//        $books = Book::query()->where('is_active', true)->get();
+//        $videoCategories = Category::query()->where('is_active', true)->get();;
+//        $skillCategories = SkillCategory::query()->where('is_active', true)->get();;
+//        View::share('sliders', $sliders);
+//        View::share('books', $books);
+//        View::share('videoCategories', $videoCategories);
+//        View::share('skillCategories', $skillCategories);
     }
 }

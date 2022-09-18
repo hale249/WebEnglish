@@ -10,6 +10,7 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/client/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('css')

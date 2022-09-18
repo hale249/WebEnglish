@@ -37,6 +37,14 @@
                     @endif
                 </div><!--col-->
             </div>
+
+            <div class="form-group row">
+                <label class="col-md-2 form-control-label" for="name">Tên</label>
+
+                <div class="col-md-10">
+                    {!! $category->status_label !!}
+                </div><!--col-->
+            </div>
         </div>
         <div class="card-footer">
             <div class="row">

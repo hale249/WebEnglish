@@ -8,7 +8,7 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\BlogController;
 use App\Http\Controllers\Client\BookHighSchoolController;
 use App\Http\Controllers\Client\VideoController;
-
+use \App\Http\Controllers\Client\SkillController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +52,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.', '
         require __DIR__ . '/admin/profile.php';
         require __DIR__ . '/admin/category.php';
         require __DIR__ . '/admin/slider.php';
+        require __DIR__ . '/admin/blog.php';
+        require __DIR__ . '/admin/video.php';
+        require __DIR__ . '/admin/book.php';
+        require __DIR__ . '/admin/music.php';
+        require __DIR__ . '/admin/skillCategory.php';
+        require __DIR__ . '/admin/skill.php';
+        require __DIR__ . '/admin/skillCourses.php';
     });
 });
 
@@ -69,8 +76,8 @@ Route::group(['as' => 'client.'], function () {
     Route::get('music', [\App\Http\Controllers\Client\MusicController::class, 'index'])->name('music.index');
     Route::get('music/{id}', [\App\Http\Controllers\Client\MusicController::class, 'detail'])->name('music.detail');
 
-    Route::get('hoc-qua-video', [VideoController::class, 'index'])->name('video.index');
-    Route::get('hoc-qua-video/{id}', [VideoController::class, 'detail'])->name('video.detail');
-    Route::get('unit', [\App\Http\Controllers\Client\UnitController::class, 'index'])->name('unit.index');
-    Route::get('unit/{id}', [\App\Http\Controllers\Client\UnitController::class, 'detail'])->name('unit.detail');
+    Route::get('hoc-qua-video/{slug}', [VideoController::class, 'index'])->name('video.index');
+    Route::get('hoc-qua-video/{slug}/{id}', [VideoController::class, 'detail'])->name('video.detail');
+    Route::get('skill', [SkillController::class, 'index'])->name('skill.index');
+    Route::get('skill/{id}', [SkillController::class, 'detail'])->name('skill.detail');
 });

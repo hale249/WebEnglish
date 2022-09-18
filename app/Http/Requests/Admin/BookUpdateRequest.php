@@ -24,7 +24,8 @@ class BookUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'nullable|required|image|mimes:jpeg,png,jpg,gif,svg'
+            'name' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg'
         ];
     }
 

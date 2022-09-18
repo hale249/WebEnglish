@@ -6,84 +6,32 @@
     <div class="banner__top"></div>
     <div class="banner__body"></div>
     <div class="container container__background">
-        <h2 class="heading__h">Tiếng anh lớp 6 - Sách mới</h2>
+        <h2 class="heading__h">{{ $book->name }}</h2>
         <p class="font-size pt-3 pb-3">
-            Học các bài tiếng Anh tương đương với chương trình lớp 6 (sách mới)
+            {{ $book->description }}
         </p>
-        <div class="row text-center p-2">
-            <div class="col-xl-4 col-sm-12 border shadow-sm mb-5 bg-body rounded-1 p-2">
-                <a href="">
-                    <img
-                        class="pt-3 pb-4"
-                        src="{{ asset('images/class_6/pt-lop6-u1.jpg') }}"
-                        width="100%"
-                        height="auto"
-                        alt=""
-                    />
-                    <p class="fs-5 text">UNIT 1: MY NEW SCHOOL</p>
-                </a>
-            </div>
-            <div class="col-xl-4 col-sm-12 border shadow-sm mb-5 bg-body rounded-1 p-2">
-                <a href="">
-                    <img
-                        class="pt-3 pb-4"
-                        src="{{ asset('images/class_6/pt-lop6-u2.jpg') }}"
-                        width="100%"
-                        height="auto"
-                        alt=""
-                    />
-                    <p class="fs-5 text">UNIT 2: MY HOME</p>
-                </a>
-            </div>
-            <div class="col-xl-4 col-sm-12 border shadow-sm mb-5 bg-body rounded-1 p-2">
-                <a href="">
-                    <img
-                        class="pt-3 pb-4"
-                        src="{{ asset('images/class_6/pt-lop6-u3.jpg') }}"
-                        width="100%"
-                        height="auto"
-                        alt=""
-                    />
-                    <p class="fs-5 text">UNIT 3: MY FRIENDS</p>
-                </a>
-            </div>
-            <div class="col-xl-4 col-sm-12 border shadow-sm mb-5 bg-body rounded-1 p-2">
-                <a href="">
-                    <img
-                        class="pt-3 pb-4"
-                        src="{{ asset('images/class_6/pt-lop6-u1.jpg') }}"
-                        width="100%"
-                        height="auto"
-                        alt=""
-                    />
-                    <p class="fs-5 text">UNIT 1: MY NEW SCHOOL</p>
-                </a>
-            </div>
-            <div class="col-xl-4 col-sm-12 border shadow-sm mb-5 bg-body rounded-1 p-2">
-                <a href="">
-                    <img
-                        class="pt-3 pb-4"
-                        src="{{ asset('images/class_6/pt-lop6-u2.jpg') }}"
-                        width="100%"
-                        height="auto"
-                        alt=""
-                    />
-                    <p class="fs-5 text">UNIT 2: MY HOME</p>
-                </a>
-            </div>
-            <div class="col-xl-4 col-sm-12 border shadow-sm mb-5 bg-body rounded-1 p-2">
-                <a href="">
-                    <img
-                        class="pt-3 pb-4"
-                        src="{{ asset('images/class_6/pt-lop6-u3.jpg') }}"
-                        width="100%"
-                        height="auto"
-                        alt=""
-                    />
-                    <p class="fs-5 text">UNIT 3: MY FRIENDS</p>
-                </a>
-            </div>
+        <div class="row">
+            @if(count($lessons) > 0)
+                @foreach($lessons as $lesson)
+                    <div class="col-xl-4 col-sm-4 p-2">
+                        <div class="border">
+                            <a href="">
+                                <img class="pt-3 pb-4" src="{{ $lesson->image }}"
+                                     width="100%" height="auto" alt="">
+                                <p class="fs-5 text text-center">{{ $lesson->name }}</p>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                @include('share.empty')
+            @endif
         </div>
 
+        <div class="row gap-4">
+            <div class="col-4">1</div>
+            <div class="col-4">2</div>
+            <div class="col-4">3</div>
+        </div>
     </div>
 @endsection

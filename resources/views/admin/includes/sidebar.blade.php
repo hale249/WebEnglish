@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-cogs"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">ABC English</div>
+        <div class="sidebar-brand-text mx-3">123 Tiếng anh</div>
     </a>
 
     <!-- Divider -->
@@ -21,34 +21,70 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item @if(\Request::is('admin/users') || \Request::is('admin/users/*')) active @endif">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-user-management" aria-expanded="true" aria-controls="menu-user-management">
+    <li class="nav-item @if(\Request::is('admin/student') || \Request::is('admin/student/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-student-management" aria-expanded="true" aria-controls="menu-student-management">
             <i class="fas fa-fw fa-users"></i>
-            <span>Người dùng</span>
+            <span>Tiếng anh THCS</span>
         </a>
-        <div id="menu-user-management" class="collapse @if(\Request::is('admin/users') || \Request::is('admin/users/*')) show @endif" data-parent="#accordionSidebar">
+        <div id="menu-student-management" class="collapse @if(\Request::is('admin/book') || \Request::is('admin/book/*')) show @endif" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if(\Request::is('admin/users')) active @endif" href="{{ route('admin.users.index') }}">Danh sách người dùng</a>
-                <a class="collapse-item @if(\Request::is('admin/users/create')) active @endif" href="{{ route('admin.users.create') }}">Tạo người dùng</a>
+                <a class="collapse-item @if(\Request::is('admin/book')) active @endif" href="{{ route('admin.book.index') }}">Sách</a>
             </div>
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item @if(\Request::is('admin/categories') || \Request::is('admin/categories/*')) active @endif">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-category-management" aria-expanded="true" aria-controls="menu-category-management">
+    <li class="nav-item @if(\Request::is('admin/skills') || \Request::is('admin/skills/*') || \Request::is('admin/skill/category') || \Request::is('admin/skill/category/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-skills-management" aria-expanded="true" aria-controls="menu-skills-management">
             <i class="fas fa-fw fa-users"></i>
-            <span>Danh mục</span>
+            <span>Học qua kỹ năng</span>
         </a>
-        <div id="menu-category-management" class="collapse @if(\Request::is('admin/categories') || \Request::is('admin/categories/*')) show @endif" data-parent="#accordionSidebar">
+        <div id="menu-skills-management" class="collapse @if(\Request::is('admin/skill') || \Request::is('admin/skill/*') || \Request::is('admin/skill/category') || \Request::is('admin/skill/category/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/skill/category')) active @endif" href="{{ route('admin.skill.category.index') }}">Danh mục</a>
+                <a class="collapse-item @if(\Request::is('admin/skills')) active @endif" href="{{ route('admin.skill.index') }}">Danh sách kỹ năng</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item @if(\Request::is('admin/video') || \Request::is('admin/video/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-video-management" aria-expanded="true" aria-controls="menu-video-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Học qua video</span>
+        </a>
+        <div id="menu-video-management" class="collapse @if(\Request::is('admin/video') || \Request::is('admin/video/*') || \Request::is('admin/categories') || \Request::is('admin/categories/*')) show @endif" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item @if(\Request::is('admin/categories')) active @endif" href="{{ route('admin.category.index') }}">Danh mục</a>
-                <a class="collapse-item @if(\Request::is('admin/categories/create')) active @endif" href="{{ route('admin.category.create') }}">Tạo danh mục</a>
+                <a class="collapse-item @if(\Request::is('admin/video')) active @endif" href="{{ route('admin.video.index') }}">Danh sách bài học</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item @if(\Request::is('admin/music') || \Request::is('admin/music/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-music-management" aria-expanded="true" aria-controls="menu-music-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Học qua bài hát</span>
+        </a>
+        <div id="menu-music-management" class="collapse @if(\Request::is('admin/music') || \Request::is('admin/music/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/music')) active @endif" href="{{ route('admin.music.index') }}">Danh sách bài học</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item @if(\Request::is('admin/blog') || \Request::is('admin/blog/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-blog-management" aria-expanded="true" aria-controls="menu-blog-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Tin tức</span>
+        </a>
+        <div id="menu-blog-management" class="collapse @if(\Request::is('admin/blog') || \Request::is('admin/blog/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/blog')) active @endif" href="{{ route('admin.blog.index') }}">Danh sách</a>
+                <a class="collapse-item @if(\Request::is('admin/blog/create')) active @endif" href="{{ route('admin.blog.create') }}">Tạo mới</a>
+            </div>
+        </div>
+    </li>
+
     <li class="nav-item @if(\Request::is('admin/sliders') || \Request::is('admin/sliders/*')) active @endif">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-slider-management" aria-expanded="true" aria-controls="menu-slider-management">
             <i class="fas fa-fw fa-users"></i>
@@ -64,6 +100,20 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item @if(\Request::is('admin/users') || \Request::is('admin/users/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-user-management" aria-expanded="true" aria-controls="menu-user-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Người dùng quản trị</span>
+        </a>
+        <div id="menu-user-management" class="collapse @if(\Request::is('admin/users') || \Request::is('admin/users/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/users')) active @endif" href="{{ route('admin.users.index') }}">Danh sách người dùng</a>
+                <a class="collapse-item @if(\Request::is('admin/users/create')) active @endif" href="{{ route('admin.users.create') }}">Tạo người dùng</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

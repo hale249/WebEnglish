@@ -20,7 +20,8 @@ class CreateCategoriesTable extends Migration
             $table->string('slug')->index();
             $table->string('image')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('is_disabled')->default(false);
+            $table->boolean('is_active')->default(false);
+            $table->string('type')->default('video')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users');

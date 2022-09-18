@@ -1,6 +1,6 @@
-{{--@extends('admin.layouts.app')--}}
+@extends('admin.layouts.app')
 
-{{--@section('title', 'Danh sách danh mục')--}}
+@section('title', 'Tiếng anh THCS')
 
 @section('content')
     <div class="card">
@@ -12,8 +12,8 @@
                     </h4>
                 </div>
                 <div class="col-4 text-right">
-                    <a href="{{ route('admin.book.create') }}" class="btn btn-primary btn-sm"><i
-                            class="fas fa-plus"></i> Tạo mới</a>
+{{--                    <a href="{{ route('admin.book.create') }}" class="btn btn-primary btn-sm"><i--}}
+{{--                            class="fas fa-plus"></i> Tạo mới</a>--}}
                 </div>
             </div>
 
@@ -25,7 +25,7 @@
                             <td><strong>Tên</strong></td>
                             <td><strong>Hình ảnh</strong></td>
                             <td><strong>Người tạo</strong></td>
-                            {{--<td><strong>Trạng thái</strong></td>--}}
+                            <td><strong>Trạng thái</strong></td>
                             <td><strong>Tạo lúc</strong></td>
                             <td><strong>Hành động</strong></td>
                         </tr>
@@ -38,7 +38,7 @@
                                     <img src="{{ $book->image }}" width="100">
                                 </td>
                                 <td>{{ $book->user->name }}</td>
-                                {{--<td>{!! $book->status_label !!}</td>--}}
+                                <td>{!! $book->status_label !!}</td>
                                 <td>{{ $book->created_at }}</td>
                                 <td>{!! $book->action_buttons !!}</td>
                             </tr>

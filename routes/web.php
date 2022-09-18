@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\BlogController;
 use App\Http\Controllers\Client\BookHighSchoolController;
 use App\Http\Controllers\Client\VideoController;
 use \App\Http\Controllers\Client\SkillController;
+use App\Http\Controllers\Client\AuthClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,16 +35,6 @@ Route::post('login', 'AuthController@login')->name('auth.login');
  * @see \App\Http\Controllers\AuthController::logout()
  */
 Route::post('logout', 'AuthController@logout')->name('auth.logout');
-
-/**
- * @see \App\Http\Controllers\AuthController::showFormRegister()
- */
-Route::get('register', 'AuthController@showFormRegister')->name('auth.show-form-register');
-
-/**
- * @see \App\Http\Controllers\AuthController::register()
- */
-Route::post('register', 'AuthController@register')->name('auth.register');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::group(['middleware' => ['permission:' . PermissionConstant::PERMISSION_VIEW_BACKEND]], function () {
@@ -80,4 +71,8 @@ Route::group(['as' => 'client.'], function () {
     Route::get('hoc-qua-video/{slug}/{id}', [VideoController::class, 'detail'])->name('video.detail');
     Route::get('skill', [SkillController::class, 'index'])->name('skill.index');
     Route::get('skill/{id}', [SkillController::class, 'detail'])->name('skill.detail');
+
+
+    Route::post('client/register', [AuthClientController::class, 'register'])->name('auth.register');
+    Route::post('client/login', [AuthClientController::class, 'login'])->name('auth.login');
 });

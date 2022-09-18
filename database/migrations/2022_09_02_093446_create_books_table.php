@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->enum('class_number', [6, 7, 8, 9])->default(6);
+            $table->integer('class_number')->default(6);
             $table->text('image');
             $table->tinyInteger('is_new')->default(true)->nullable();
             $table->tinyInteger('is_active')->default(true)->nullable();

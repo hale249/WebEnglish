@@ -196,7 +196,7 @@
         <div class="lesson__banner"></div>
         <div class="lesson__hightschool">
             <div class="header__title">
-                <a href="{{ route('client.book.index') }}" class="body__lesson-link body__lesson-title">
+                <a href="#" class="body__lesson-link body__lesson-title">
                     TIẾNG ANH CƠ SỞ
                     <a href="" class=" body__lesson-title"><i
                             class="body__lesson-link-logo bi bi-chevron-right"></i></a>
@@ -205,7 +205,7 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-xl-6 col-sm-12">
-                        <a href="{{ route('client.book.index') }}" class="lesson__hightschool-link">
+                        <a href="#" class="lesson__hightschool-link">
                             <img class="lesson__hightschool-link-img w-100 h-100" src="{{ asset('images/hight_school.png') }}"
                                  alt="">
                             <span class="lesson__hightschool-link-content">Tiếng Anh<br>trung
@@ -214,14 +214,11 @@
                     </div>
                     <div class="col-xl-6 col-sm-12 ">
                         <div class="list-group">
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
-                                Tiếng Anh lớp 6 <span class="">6</span>
+                            @foreach($books as $book)
+                            <a href="{{ route('client.book.lesson', $book->id) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
+                                {{ $book->name }} <span class="">{{ $book->class_number }}</span>
                             </a>
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
-                                Tiếng Anh lớp 7 <span class="">7</span></a>
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">Tiếng Anh lớp 8 <span class="">8</span></a>
-                            <a href="{{ route('client.book.lesson', 1) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">Tiếng Anh
-                                lớp 9 <span class="">9</span></a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -229,10 +226,12 @@
         </div>
         <div class="point" id="skill">
             <div class="header__title">
-                <a href="" class="body__lesson-link body__lesson-title">
+                <a href="{{ route('client.skill.index') }}" class="body__lesson-link body__lesson-title">
                     LUYỆN KỸ NĂNG
-                    <a href="" class=" body__lesson-title"><i
-                            class="body__lesson-link-logo bi bi-chevron-right"></i></a>
+                    <span class=" body__lesson-title"><i
+                            class="body__lesson-link-logo bi bi-chevron-right"></i>
+                    </span>
+                </a>
                 </a>
             </div>
             <div class="container text-center point__content">
@@ -285,13 +284,22 @@
                     <div class="col-6 mb-3">
                         <div class="lesson__video-item d-flex align-items-center">
                             <div class="video__img">
-                                <a class="video__img-link" href=""><img
+                                <a class="video__img-link" href="{{ route('client.video.index', ['slug' => $category->slug]) }}">
+                                    <img
+                                        width="84"
+                                        height="84"
                                         class="video__img-img"
                                         src="{{ !empty($category->image) ? $category->image : asset('images/video1.png') }}"
-                                        alt=""></a>
+                                        alt="" />
+                                </a>
                             </div>
+
                             <div class="lesson__video-heading">
-                                <a class="lesson__video-heading-link" href="#">{{ $category->name }}</span></a>
+                                <a class="lesson__video-heading-link" href="{{ route('client.video.index', ['slug' => $category->slug]) }}">{{ $category->name }}</span></a>
+                                <div class="sup__div"><i class="bi bi-camera-video-fill"></i>
+                                    <a href="{{ route('client.video.index', ['slug' => $category->slug]) }}" class="lesson__video-heading-suplink">
+                                        {{ $category->description }}
+                                    </a></div>
                             </div>
                         </div>
                     </div>
@@ -302,7 +310,7 @@
             <div class="header__title">
                 <a href="" class="body__lesson-link body__lesson-title">
                     GIẢI TRÍ VỚI TIẾNG ANH
-                    <a href="" class=" body__lesson-title"><i
+                    <a href="{{ route('client.music.index') }}" class=" body__lesson-title"><i
                             class="body__lesson-link-logo bi bi-chevron-right"></i></a>
                 </a>
             </div>
@@ -311,7 +319,7 @@
                     <div class="col-xl-6 col-sm-12">
                         <div class="lesson-entertainment__film">
                             <a class="lesson-entertainment__link" href="{{ route('client.music.index') }}">
-                                <img class="lesson-entertainment__img" src="{{ asset('images/music.png') }}">
+                                <img class="lesson-entertainment__img" src="{{ asset('images/music.png') }}" />
                                 <div class="lesson-entertainment__img-title">
                                     <h4 class="lesson-entertainment__img-title-headding">Học
                                         tiếng Anh qua bài hát</h4>

@@ -65,7 +65,8 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <h4>Đăng ký</h4>
-                    <form action="">
+                    <form action="{{ route('client.auth.register') }}" method="POST">
+                        @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Tên</label>
                             <input type="text" class="form-control form-input"

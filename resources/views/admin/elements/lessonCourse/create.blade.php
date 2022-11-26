@@ -61,7 +61,7 @@
                     <label class="col-md-2 form-control-label" for="is_active">Trạng thái</label>
 
                     <div class="col-md-10">
-                        <input type="checkbox" data-on="Hiện" value="1" data-off="Ẩn"
+                        <input type="checkbox" data-on="On" value="1" data-off="Off"
                                name="is_active" id="is_active" checked data-toggle="toggle" data-onstyle="primary">
                     </div><!--col-->
                 </div>

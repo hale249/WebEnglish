@@ -25,9 +25,8 @@
             <div class="row learn-america__noti">
                 <div class="col-6 learn-america__noti-list d-flex">
                     <span><i class="bi bi-check2 learn-america__noti-list-logo"></i></span>
-                    <p class="col__logo-content">Giá thẻ VIP để học toàn bộ các
-                        chương trình trên Tiếng Anh 123 chỉ <strong>199.000 đ/ 1 năm</strong>
-                        (~ 1 ly cafe / 1 tháng).</p>
+                    <p class="col__logo-content">Đăng nhập để học toàn bộ các
+                        chương trình trên 123 Tiếng Anh </p>
                 </div>
                 <div class="col-6 learn-america__noti-list d-flex">
                     <span><i class="bi bi-check2 learn-america__noti-list-logo"></i></span>

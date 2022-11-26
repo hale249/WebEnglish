@@ -3,19 +3,21 @@
 namespace App\Models;
 
 use App\Models\Traits\Attributes\StatusLabelAttribute;
+use App\Models\Traits\Slug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
-    use SoftDeletes, StatusLabelAttribute;
+    use SoftDeletes, StatusLabelAttribute, Slug;
 
     protected $table = 'books';
 
     protected $fillable = [
         'user_id',
         'name',
+        'slug',
         'description',
         'is_active',
         'is_new',

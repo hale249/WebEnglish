@@ -5,29 +5,19 @@
 @section('content')
     <div class="container container__background ">
         <div class="">
-            <p class=" mb-0 pt-3 text-info">Seminar sets safe food market goals</p>
+            <h4 class="mb-0 pt-3 text-info">{{ $video->title   }}</h4>
+            <div class="mb-3">{{ $video->sub_title }}</div>
             <div class="text-center">
-                <video width="520" height="440" controls>
-                    <source src="{{ asset('video/news/bai111.mp4') }}"
-                            type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                    <iframe width="80%" height="440" src="{{ $video->link_video }}" frameborder="0" allowfullscreen>
+                    </iframe>
             </div>
             <div class="p-3 font-size">
-                <p>Hello. You're watching the Economy Report from
-                    English 123.</p>
+                {!! $video->content !!}
+            </div>
 
-                <p>Ho Chi Minh City Health Department officials have
-                    urged consumers to buy products with a clear origin
-                    sold at clean and hygienic trading places to ensure
-                    food safety.</p>
-
-                <p> Speaking at a seminar titled “For a safe food
-                    market” in Ho Chi Minh City last Saturday, Nguyen
-                    Thi Huynh Mai, deputy head of the department's Food
-                    Safety and Hygiene Division, said consumers should
-                    report any selling place with unsafe products or
-                    those with unclear origin to authorized agencies.</p>
+            <div class="px-3 pb-3 font-size">
+                <div><strong>Dịch nghiã: </strong></div>
+                {!! $video->content_translate !!}
             </div>
         </div>
     </div>

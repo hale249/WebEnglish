@@ -13,18 +13,26 @@ class VideoController extends Controller
     {
         $category = Category::query()->where('slug', $slug)->first();
         if (empty($category)){
-            return redirect()->back();
+            return redirect()->route('client.home.index');
         }
 
-        $videos = Video::query()->where('is_active', true)->paginate(Constant::DEFAULT_PER_PAGE);
+        $videos = Video::query()->where('is_active', true)->where('category_id', $category->id)->paginate(Constant::DEFAULT_PER_PAGE);
 
         return view('client.elements.video.index', compact('videos', 'category'));
     }
 
-    public function detail($slug)
+    public function detail($slug, $id)
     {
         $category = Category::query()->where('slug', $slug)->first();
+        if (empty($category)) {
+            return redirect()->route('client.home.index');
+        }
 
-        return view('client.elements.video.detail', compact('category'));
+        $video = Video::query()->where('is_active', true)->where('id', $id)->first();
+        if (empty($video)){
+            return redirect()->route('client.video.index', $slug);
+        }
+
+        return view('client.elements.video.detail', compact('category', 'video'));
     }
 }

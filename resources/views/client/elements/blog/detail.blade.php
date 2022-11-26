@@ -8,7 +8,11 @@
             <h3 class="heading__h border-bottom text-danger">{{ $blog->title }}
             </h3>
             <div>{{ $blog->sub_title }}</div>
-            <img src="{{ $blog->image }}" alt="" style="width:100%;">
+            @if(!empty($blog->image))
+                <div class="d-flex justify-content-center">
+                    <img src="{{ $blog->image }}" alt="{{ $blog->sub_title }}" style="width:80%;">
+                </div>
+            @endif
 
             <div>
                 {!! $blog->content !!}

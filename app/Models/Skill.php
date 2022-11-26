@@ -87,6 +87,5 @@ class Skill extends Model
                  data-trans-button-confirm="Xóa"
                  data-trans-title="Chắc chắn bạn muốn xóa?"
                  class="btn btn-danger js-confirm-delete btn-sm"><i class="fas fa-trash"></i></a>';
-
     }
 }

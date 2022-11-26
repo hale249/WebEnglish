@@ -17,7 +17,7 @@
                         @foreach($book as $item)
                         <div class="col-xl-6 col-sm-12 p-3">
                             <div class="border shadow mb-5 bg-body rounded-4 overflow-hidden">
-                                <a class="book-list__link" href="{{ route('client.book.lesson', $item->id) }}">
+                                <a class="book-list__link" href="{{ route('client.book.lesson', $item->slug) }}">
                                     <div class="book-list__img">
                                         <img src="{{ $item->image }}" width="100%" height="100%"
                                              alt="">

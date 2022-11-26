@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.', '
         require __DIR__ . '/admin/skillCategory.php';
         require __DIR__ . '/admin/skill.php';
         require __DIR__ . '/admin/skillCourses.php';
+        require __DIR__ . '/admin/quiz.php';
     });
 });
 
@@ -57,8 +58,9 @@ Route::group(['as' => 'client.'], function () {
     Route::get('', [HomeController::class, 'index'])->name('home.index');
     Route::get('news', [BlogController::class, 'index'])->name('blog.index');
     Route::get('news/{id}', [BlogController::class, 'detail'])->name('blog.detail');
-    Route::get('book', [BookHighSchoolController::class, 'index'])->name('book.index');
-    Route::get('book/{id}/lesson', [BookHighSchoolController::class, 'lesson'])->name('book.lesson');
+    Route::get('book/{slug}', [BookHighSchoolController::class, 'lesson'])->name('book.lesson');
+    Route::get('book/{slug}/{lessonSlug}', [BookHighSchoolController::class, 'unitLesson'])->name('book.unit');
+    Route::get('book/{slug}/{lessonSlug}/{unitId}', [BookHighSchoolController::class, 'unitDetail'])->name('book.unitDetail');
     Route::get('lesson', [BookHighSchoolController::class, 'lessonIndex'])->name('lesson.index');
     Route::get('', [HomeController::class, 'index'])->name('home.index');
     Route::get('dictionary', [DictionaryController::class, 'index'])->name('dictionary.index');

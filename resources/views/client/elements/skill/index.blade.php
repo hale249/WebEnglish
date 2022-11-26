@@ -69,25 +69,23 @@
                 </a>
             </div>
         </div>
-        <div class="list">
+        <div class="list pb-3">
             <h2>Danh sách bài học</h2>
             <p class="font-size">Có <strong>{{ $count }}</strong> bài học {{ $category->name ?? '' }} </p>
-            <p class="font-size">{{ $category->description ?? '' }}</p>
+            <smail><i>{{ $category->description ?? '' }}</i></smail>
             <div class="row">
-
                 @foreach($skills as $skill)
                 <div class="col-4 col4__video">
-                    <img srcset="{{ $skill->image }}" width="100%" height="240">
-                    <div class="sub-video">
-                        @if($skill->is_login)
+                    <a href="{{ route('client.skill.detail', $skill->id) }}">
+                        <img srcset="{{ $skill->image }}" width="100%" height="240">
+                        <div class="sub-video">
                             <a class="sub-video__link" href="{{ route('client.skill.detail', $skill->id) }}">{{ $skill->name }}</a>
-                        @else
-                            <a class="sub-video__link" href="#">{{ $skill->name }}</a>
-                        @endif
-                        <div class="@if(!$skill->is_login) sub-video__stick @else sub-video__stick--yellow @endif">
-                            <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                            @if(!$skill->is_login) Học miễn phí @else Đăng nhập để học @endif
                         </div>
+                    </a>
+
+                    <div class="@if(!$skill->is_login) sub-video__stick @else sub-video__stick--yellow @endif">
+                        <i class="bi bi-tag-fill sub-video__link-logo"></i>
+                        @if(!$skill->is_login) Học miễn phí @else Đăng nhập để học @endif
                     </div>
                 </div>
                 @endforeach

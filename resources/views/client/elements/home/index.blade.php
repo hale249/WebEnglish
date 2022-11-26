@@ -111,7 +111,7 @@
         <div class="body__lesson-footer">
             <div class="body__lesson-footer-tag">
                 <span class="body__lesson-footer-icon"><i class="bi bi-fire"></i></span>Hot
-                nhất trên Tiếng Anh 123
+                nhất trên 123 Tiếng Anh
             </div>
             <a href="{{ route('client.lesson.index') }}" class="body__lesson-footer-btn"><span>Xem thêm</span><i
                     class="body__lesson-link-logo bi bi-chevron-right"></i></a>
@@ -215,7 +215,7 @@
                     <div class="col-xl-6 col-sm-12 ">
                         <div class="list-group">
                             @foreach($books as $book)
-                            <a href="{{ route('client.book.lesson', $book->id) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
+                            <a href="{{ route('client.book.lesson', $book->slug) }}" class="list-group-item d-flex justify-content-between align-items-center lesson__hightschool-list py-3 cursor-pointer">
                                 {{ $book->name }} <span class="">{{ $book->class_number }}</span>
                             </a>
                             @endforeach
@@ -272,11 +272,11 @@
         </div>
         <div class="lesson__video">
             <div class="header__title">
-                <a href="" class="body__lesson-link body__lesson-title">
+                <span class="body__lesson-link body__lesson-title">
                     HỌC QUA VIDEO
-                    <a href="#" class=" body__lesson-title"><i
-                            class="body__lesson-link-logo bi bi-chevron-right"></i></a>
-                </a>
+                    <span class=" body__lesson-title"><i
+                            class="body__lesson-link-logo bi bi-chevron-right"></i></span>
+                </span>
             </div>
 
             <div class="row">
@@ -308,11 +308,11 @@
         </div>
         <div class="lesson-entertainment">
             <div class="header__title">
-                <a href="" class="body__lesson-link body__lesson-title">
+                <span class="body__lesson-link body__lesson-title">
                     GIẢI TRÍ VỚI TIẾNG ANH
                     <a href="{{ route('client.music.index') }}" class=" body__lesson-title"><i
                             class="body__lesson-link-logo bi bi-chevron-right"></i></a>
-                </a>
+                </span>
             </div>
             <div class="container">
                 <div class="row">

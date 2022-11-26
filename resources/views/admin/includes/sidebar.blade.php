@@ -98,6 +98,19 @@
         </div>
     </li>
 
+    <li class="nav-item @if(\Request::is('admin/quiz') || \Request::is('admin/quiz/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-quiz-management" aria-expanded="true" aria-controls="menu-quiz-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Quản lý câu hỏi</span>
+        </a>
+        <div id="menu-quiz-management" class="collapse @if(\Request::is('admin/quiz') || \Request::is('admin/quiz/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/quiz')) active @endif" href="{{ route('admin.quiz.index') }}">Quản lý câu hỏi</a>
+                <a class="collapse-item @if(\Request::is('admin/quiz/create')) active @endif" href="{{ route('admin.quiz.create') }}">Tạo câu hỏi</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

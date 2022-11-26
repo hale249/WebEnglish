@@ -1,19 +1,19 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tạo video bài học')
+@section('title', 'Tạo bài học')
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.book.lesson.store', $book->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.quiz.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
-                    Bài học: {{ $book->name }}
+                    Danh sách bài kiểm tra
                     <small class="text-muted">Tạo mới</small>
                 </h4>
                 <hr>
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="name">Tên bài học</label>
+                    <label class="col-md-2 form-control-label" for="title">Tên</label>
 
                     <div class="col-md-10">
                         <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}"
@@ -22,11 +22,12 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="image">Hình ảnh</label>
+                    <label class="col-md-2 form-control-label" for="description">Mô tả ngắn</label>
 
                     <div class="col-md-10">
-                        <input type="file" name="image" id="image">
-                    </div><!--col-->
+                        <textarea class="form-control" name="description" id="description"
+                                  placeholder="Nhập mô tả ngắn..."> {{ old('description') }}</textarea>
+                    </div>
                 </div>
 
                 <div class="form-group row">
@@ -41,7 +42,7 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.book.lesson.index', $book->id) }}" class="btn btn-danger btn-sm">Hủy</a>
+                        <a href="{{ route('admin.quiz.index') }}" class="btn btn-danger btn-sm">Hủy</a>
                     </div>
 
                     <div class="col text-right">

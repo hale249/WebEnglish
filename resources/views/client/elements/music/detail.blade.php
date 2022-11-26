@@ -4,7 +4,8 @@
 
 @section('content')
     <div class="container container__background ">
-        <p class=" mb-0 pt-3 text-info mb-4">{{ $music->title }}</p>
+        <h4 class=" mb-0 pt-3 text-info">{{ $music->title }}</h4>
+        <div class="mb-4"><small>{{ $music->sub_title }}</small></div>
         <div class="text-center">
             <iframe width="80%" height="440" src="{{ $music->link_video }}" frameborder="0" allowfullscreen>
             </iframe>

@@ -14,15 +14,17 @@ class SkillController extends Controller
     {
         $categoryId = $request->get('category_id');
         $skills = Skill::query()->where('is_active', true);
-        if (!empty($categoryId)) {
-            $skills = $skills->where('category_id', $categoryId);
+        $category = [];
+        $count = 0;
+        if (empty($categoryId)) {
+            return view('client.elements.skill.index', compact('skills', 'category', 'count'));
         }
 
+        $skills = $skills->where('category_id', $categoryId);
         $cloneCopy = clone $skills;
         $count = count($cloneCopy->get());
 
         $skills = $skills->paginate(Constant::DEFAULT_PER_PAGE);
-        $category = [];
         if (!empty($categoryId)) {
             $category = Category::query()->where('id', $categoryId)->first();
         }

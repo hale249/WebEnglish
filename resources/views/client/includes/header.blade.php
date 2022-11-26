@@ -25,12 +25,12 @@
                 </a>
             </li>
             <li class="nav__item nav__item--before">
-                <a href="#" class="nav__item-link">Tiếng anh phổ thông</a>
+                <span class="nav__item-link">Tiếng anh phổ thông</span>
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
                         @foreach($books as $book)
                             <li class="sub__nav-item">
-                                <a href="{{ route('client.book.lesson', $book->id) }}"
+                                <a href="{{ route('client.book.lesson', $book->slug) }}"
                                    class="sub__nav-item-link">{{ $book->name }}</a>
                             </li>
                         @endforeach
@@ -51,7 +51,7 @@
                 </div>
             </li>
             <li class="nav__item">
-                <a href="#" class="nav__item-link">Học qua video</a>
+                <span class="nav__item-link">Học qua video</span>
                 <div class="sub__nav">
                     <ul class="sub__nav-list">
                         @foreach($videoCategories as $category)

@@ -32,7 +32,7 @@
                         @foreach($dictionaries[0]['meanings'] as $meaning)
                             @if(!empty($meaning['definitions']))
                                 @foreach($meaning['definitions'] as $item)
-                                    <p class="font-size">{{ $item['definition'] ?? '' }}</p>
+                                    <p class="font-size"><small>{{ $item['definition'] ?? '' }}</small></p>
                                 @endforeach
                             @endif
                         @endforeach

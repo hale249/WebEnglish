@@ -236,30 +236,14 @@
             </div>
             <div class="container text-center point__content">
                 <div class="row">
-                    <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="#">
-                            <img src="{{ asset('images/ig_lpa.jpg') }}" alt="" class="point-img">
-                            <p class="point-img__content">Luyện <span>phát âm</span></p>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="#">
-                            <img src="{{ asset('images/img2.jpg') }}" alt="" class="point-img">
-                            <p class="point-img__content">Luyện <span>nghe</span></p>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="#">
-                            <img src="{{ asset('images/ig_ld.jpg') }}" alt="" class="point-img">
-                            <p class="point-img__content">Luyện <span>đọc</span></p>
-                        </a>
-                    </div>
-                    <div class="col-xl-3 col-sm-6">
-                        <a class="point-link" href="#">
-                            <img src="{{ asset('images/ig_thcs.jpg') }}" alt="" class="point-img">
-                            <p class="point-img__content">Luyện <span>viết</span></p>
-                        </a>
-                    </div>
+                    @foreach($skillCategories as $category)
+                        <div class="col-xl-3 col-sm-6">
+                            <a class="point-link" href="{{ route('client.skill.index', ['category_id' => $category->id]) }}">
+                                <img src="{{ $category->image }}" alt="" class="point-img">
+                                <p class="point-img__content">Luyện <span>{{ $category->name }}</span></p>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="point__footer">

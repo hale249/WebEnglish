@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $lesson->name }}</td>
                                 <td>
-                                    <img src="{{ $lesson->image }}" width="100">
+                                    <img src="{{ $lesson->image }}" width="50">
                                 </td>
                                 <td>{!! $lesson->status_label !!}</td>
                                 <td>{{ $lesson->created_at }}</td>

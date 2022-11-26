@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{ $skill->name }}</td>
                                 <td>
-                                    <img src="{{ $skill->image }}" width="100">
+                                    <img src="{{ $skill->image }}" width="50">
                                 </td>
                                 <td>{{ $skill->category->name }}</td>
                                 <td>{{ $skill->user->name }}</td>

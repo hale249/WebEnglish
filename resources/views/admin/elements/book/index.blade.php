@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{ $book->name }}</td>
                                 <td>
-                                    <img src="{{ $book->image }}" width="100">
+                                    <img src="{{ $book->image }}" width="50">
                                 </td>
                                 <td>{{ $book->user->name }}</td>
                                 <td>{!! $book->status_label !!}</td>

@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $course->title }}</td>
                                 <td>
-                                    <img src="{{ $course->image }}" width="100">
+                                    <img src="{{ $course->image }}" width="50">
                                 </td>
                                 <td>{!! $course->status_label !!}</td>
                                 <td>{{ $course->created_at }}</td>

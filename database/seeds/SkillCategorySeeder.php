@@ -13,40 +13,44 @@ class SkillCategorySeeder extends Seeder
     public function run()
     {
         SkillCategory::query()->updateOrCreate([
-            'name' => 'Phát âm tiếng anh',
+            'name' => 'Phát âm',
             'slug' => SkillCategory::PRONUNCIATION
         ], [
-            'name' => 'Phát âm tiếng anh',
+            'name' => 'Phát âm',
             'slug' => SkillCategory::PRONUNCIATION,
+            'image' => '/images/ig_lpa.jpg',
             'is_active' => true,
             'description' => 'Phát âm tiếng anh'
         ]);
 
         SkillCategory::query()->updateOrCreate([
-            'name' => 'Từ vựng tiếng anh',
+            'name' => 'Từ vựng',
             'slug' => SkillCategory::VOCABULARY
         ], [
-            'name' => 'Từ vựng tiếng anh',
+            'name' => 'Từ vựng',
+            'image' => '/images/img2.jpg',
             'slug' => SkillCategory::VOCABULARY,
             'is_active' => true,
             'description' => 'Từ vựng tiếng anh'
         ]);
 
         SkillCategory::query()->updateOrCreate([
-            'name' => 'Ngữ pháp tiếng anh',
+            'name' => 'Ngữ pháp',
             'slug' => SkillCategory::GRAMMAR
         ], [
-            'name' => 'Ngữ pháp tiếng anh',
+            'name' => 'Ngữ pháp',
+            'image' => '/images/ig_ld.jpg',
             'slug' => SkillCategory::GRAMMAR,
             'is_active' => true,
             'description' => 'Ngữ pháp tiếng anh'
         ]);
 
         SkillCategory::query()->updateOrCreate([
-            'name' => 'Viết tiếng anh',
+            'name' => 'Viết',
             'slug' => SkillCategory::WRITE
         ], [
-            'name' => 'Viết tiếng anh',
+            'name' => 'Viết',
+            'image' => '/images/ig_thcs.jpg',
             'slug' => SkillCategory::WRITE,
             'is_active' => true,
             'description' => 'Viết tiếng anh'

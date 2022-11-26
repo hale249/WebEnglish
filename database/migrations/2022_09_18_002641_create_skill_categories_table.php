@@ -17,6 +17,7 @@ class CreateSkillCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('image')->nullable();
             $table->tinyInteger('is_active')->default(true)->nullable();
             $table->text('description')->nullable();
             $table->timestamps();

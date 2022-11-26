@@ -19,6 +19,7 @@
                         <thead>
                         <tr>
                             <td><strong>Tên</strong></td>
+                            <td><strong>Hình ảnh</strong></td>
                             <td><strong>Trạng thái</strong></td>
                             <td><strong>Tạo lúc</strong></td>
                             <td><strong>Hành động</strong></td>
@@ -28,6 +29,7 @@
                         @foreach($categories as $category)
                             <tr>
                                 <td>{{ $category->name }}</td>
+                                <td> <img srcset="{{ $category->image }}" width="50"></td>
                                 <td>{!! $category->status_label !!}</td>
                                 <td>{{ $category->created_at }}</td>
                                 <td>{!! $category->action_buttons !!}</td>

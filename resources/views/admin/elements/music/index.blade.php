@@ -35,7 +35,7 @@
                             <tr>
                                 <td>{{ $music->title }}</td>
                                 <td>
-                                    <img src="{{ $music->image }}" width="100">
+                                    <img src="{{ $music->image }}" width="50">
                                 </td>
                                 <td>{{ $music->user->name }}</td>
                                 <td>{!! $music->status_label !!}</td>

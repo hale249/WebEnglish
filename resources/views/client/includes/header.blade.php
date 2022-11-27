@@ -52,7 +52,7 @@
                         @foreach($skillCategories as $category)
                             <li class="sub__nav-item">
                                 <a href="{{ route('client.skill.index', ['category_id' => $category->id]) }}"
-                                   class="sub__nav-item-link">{{ $category->name }}</a>
+                                   class="sub__nav-item-link">Luyện {{ $category->name }}</a>
                             </li>
                         @endforeach
                     </ul>

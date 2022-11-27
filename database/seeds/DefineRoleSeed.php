@@ -23,43 +23,5 @@ class DefineRoleSeed extends Seeder
             ->updateOrCreate([
                 'name' => PermissionConstant::ROLE_MANAGER
             ], []);
-
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_VIEW_BACKEND], []);
-
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_VIEW_LIST_MANAGER_USER], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_ADD_MANAGER_USER], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_MANAGER_USER], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_MANAGER_USER], []);
-
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_VIEW_LIST_CATEGORY], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_ADD_CATEGORY], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_ALL_CATEGORY], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_UPDATE_CATEGORY], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_ALL_CATEGORY], []);
-        Permission::query()->updateOrCreate(['name' => PermissionConstant::PERMISSION_DELETE_CATEGORY], []);
-
-        //ADMIN
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_BACKEND);
-
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_MANAGER_USER);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_ADD_MANAGER_USER);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_MANAGER_USER);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_MANAGER_USER);
-
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_CATEGORY);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_ADD_CATEGORY);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_ALL_CATEGORY);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_CATEGORY);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_ALL_CATEGORY);
-        $roleAdmin->givePermissionTo(PermissionConstant::PERMISSION_DELETE_CATEGORY);
-
-        //MANAGER
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_VIEW_BACKEND);
-
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_CATEGORY);
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_ADD_CATEGORY);
-        $roleManager->givePermissionTo(PermissionConstant::PERMISSION_UPDATE_CATEGORY);
     }
 }

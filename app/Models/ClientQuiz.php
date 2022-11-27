@@ -14,4 +14,9 @@ class ClientQuiz extends Model
         'success',
         'fail',
     ];
+
+    public function quiz(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Quiz::class, 'quiz_id', 'id');
+    }
 }

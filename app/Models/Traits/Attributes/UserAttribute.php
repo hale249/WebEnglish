@@ -2,7 +2,6 @@
 
 namespace App\Models\Traits\Attributes;
 
-use App\Helpers\PermissionConstant;
 use Illuminate\Support\Facades\Hash;
 
 trait UserAttribute
@@ -43,10 +42,6 @@ trait UserAttribute
      */
     public function getEditButtonAttribute(): string
     {
-        if (!auth()->user()->hasPermissionTo(PermissionConstant::PERMISSION_UPDATE_MANAGER_USER)) {
-            return '';
-        }
-
         if ($this->id === 1 && auth()->id() !== 1) {
             return '';
         }
@@ -59,10 +54,6 @@ trait UserAttribute
      */
     public function getDeleteButtonAttribute(): string
     {
-        if (!auth()->user()->hasPermissionTo(PermissionConstant::PERMISSION_DELETE_MANAGER_USER)) {
-            return '';
-        }
-
         if ($this->id === 1) {
             return '';
         }
@@ -76,10 +67,6 @@ trait UserAttribute
 
     public function getChangePasswordButtonAttribute(): string
     {
-        if (!auth()->user()->hasPermissionTo(PermissionConstant::PERMISSION_UPDATE_MANAGER_USER)) {
-            return '';
-        }
-
         if ($this->id === 1 && auth()->id() !== 1) {
             return '';
         }

@@ -12,9 +12,8 @@
                     </h4>
                 </div>
                 <div class="col-4 text-right">
-                    @can(\App\Helpers\PermissionConstant::PERMISSION_ADD_CATEGORY)
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Tạo mới</a>
-                    @endcan
+                    <a href="{{ route('admin.category.create') }}" class="btn btn-primary btn-sm"><i
+                            class="fas fa-plus"></i> Tạo mới</a>
                 </div>
             </div>
 
@@ -25,9 +24,7 @@
                         <tr>
                             <td><strong>Tên</strong></td>
                             <td><strong>Hình ảnh</strong></td>
-                            @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)
-                                <td><strong>Người tạo</strong></td>
-                            @endcan
+                            <td><strong>Người tạo</strong></td>
                             <td><strong>Trạng thái</strong></td>
                             <td><strong>Tạo lúc</strong></td>
                             <td><strong>Hành động</strong></td>
@@ -40,9 +37,7 @@
                                 <td>
                                     <img src="{{ $category->image }}" width="50">
                                 </td>
-                                @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)
-                                    <td>{{ $category->user->name }}</td>
-                                @endcan
+                                <td>{{ $category->user->name }}</td>
                                 <td>{!! $category->status_label !!}</td>
                                 <td>{{ $category->created_at }}</td>
                                 <td>{!! $category->action_buttons !!}</td>

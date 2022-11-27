@@ -59,9 +59,8 @@ class UserController extends Controller
         ]);
         $user = User::query()
             ->create($data);
-
-        if (!empty($data['role'])) {
-            $user->assignRole($data['role']);
+        if (empty($user)) {
+            return redirect()->back()->with('flash_danger', 'Tạo thất bại');
         }
 
         return redirect()->back()->with('flash_success', 'Thêm mới người dùng thành công');
@@ -89,11 +88,6 @@ class UserController extends Controller
 
         $user = User::query()->findOrFail($id);
         $user->update($data);
-        if (!empty($data['role'])) {
-            $user->syncRoles([$data['role']]);
-        } else {
-            $user->syncRoles([]);
-        }
 
         return redirect()->back()->with('flash_success', 'Cập nhật người dùng thành công');
     }

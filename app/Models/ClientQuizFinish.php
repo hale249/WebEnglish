@@ -13,5 +13,7 @@ class ClientQuizFinish extends Model
         'question_id',
         'client_answer',
         'correct_answer',
+        'created_at',
+        'updated_at',
     ];
 }

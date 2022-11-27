@@ -62,12 +62,15 @@
                         nghĩa.</p>
                 </div>
             </div>
-            <div class="learn__btn--center">
-                <a href="" class="learn__btn btn text-center fs-12">
-                    <i class="learn__btn-logo bi bi-credit-card-2-back"></i>
-                    Đăng kí thành viên
-                </a>
-            </div>
+
+            @if(empty(\Illuminate\Support\Facades\Auth::guard('client')->user()))
+                <div class="learn__btn--center">
+                    <a href="{{ route('client.auth.form.register') }}" class="learn__btn btn text-center fs-12">
+                        <i class="learn__btn-logo bi bi-credit-card-2-back"></i>
+                        Đăng kí thành viên
+                    </a>
+                </div>
+            @endif
         </div>
         <div class="list pb-3">
             <h2>Danh sách bài học</h2>
@@ -75,19 +78,36 @@
             <smail><i>{{ $category->description ?? '' }}</i></smail>
             <div class="row">
                 @foreach($skills as $skill)
-                <div class="col-4 col4__video">
-                    <a href="{{ route('client.skill.detail', $skill->id) }}">
-                        <img srcset="{{ $skill->image }}" width="100%" height="240">
-                        <div class="sub-video">
-                            <a class="sub-video__link" href="{{ route('client.skill.detail', $skill->id) }}">{{ $skill->name }}</a>
-                        </div>
-                    </a>
+                    <div class="col-4 col4__video">
+                        @if(!empty(\Illuminate\Support\Facades\Auth::guard('client')->user()))
+                            <a href="{{ route('client.skill.detail', $skill->id) }}">
+                                <img srcset="{{ $skill->image }}" width="100%" height="240">
+                                <div class="sub-video">
+                                    <a class="sub-video__link"
+                                       href="{{ route('client.skill.detail', $skill->id) }}">{{ $skill->name }}</a>
+                                </div>
+                            </a>
+                        @else
+                            <a href="{{ !$skill->is_login ? route('client.skill.detail', $skill->id) : '#' }}">
+                                <img srcset="{{ $skill->image }}" width="100%" height="240">
+                                <div class="sub-video">
+                                    <a class="sub-video__link"
+                                       href="{{ route('client.skill.detail', $skill->id) }}">{{ $skill->name }}</a>
+                                </div>
+                            </a>
+                        @endif
 
-                    <div class="@if(!$skill->is_login) sub-video__stick @else sub-video__stick--yellow @endif">
-                        <i class="bi bi-tag-fill sub-video__link-logo"></i>
-                        @if(!$skill->is_login) Học miễn phí @else Đăng nhập để học @endif
+                        @if(empty(\Illuminate\Support\Facades\Auth::guard('client')->user()))
+                            <div class="@if(!$skill->is_login) sub-video__stick @else sub-video__stick--yellow @endif">
+                                <i class="bi bi-tag-fill sub-video__link-logo"></i>
+                                @if(!$skill->is_login)
+                                    Học miễn phí
+                                @else
+                                    Đăng nhập để học
+                                @endif
+                            </div>
+                        @endif
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

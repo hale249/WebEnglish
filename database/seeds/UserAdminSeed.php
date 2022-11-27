@@ -14,12 +14,13 @@ class UserAdminSeed extends Seeder
     public function run()
     {
         $user = User::query()
-            ->create([
+            ->updateOrCreate([
+                'email' => 'admin@gmail.com',
+            ], [
                 'name' => 'Administrator',
                 'email' => 'admin@gmail.com',
+                'role' => \App\Helpers\PermissionConstant::ROLE_ADMIN,
                 'password' => Hash::make('admin')
             ]);
-
-        $user->assignRole(\App\Helpers\PermissionConstant::ROLE_ADMIN);
     }
 }

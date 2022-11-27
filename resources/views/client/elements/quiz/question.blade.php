@@ -32,10 +32,21 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($questions) > 0)
             <div class="text-center border-top">
-                <p class="fw-normal fs-5 text">Sau khi hoàn thiện bài làm hãy bấm vào <span class="fw-bold fs-4 text">"Hoàn thành"</span> bên dưới</p>
-                <button class="btn submit" type="submit">Hoàn thành</button>
+                @if(!empty(\Illuminate\Support\Facades\Auth::guard('client')->user()))
+                    <p class="fw-normal fs-5 text">Sau khi hoàn thiện bài làm hãy bấm vào <span class="fw-bold fs-4 text">"Hoàn thành"</span> bên dưới</p>
+                    <button class="btn submit" type="submit">Hoàn thành</button>
+                @else
+                    <p class="fw-normal fs-5 text">Vui lòng thực hiện đăng nhập để thực hiện làm bài kiểm tra</p>
+                    <a href="{{ route('client.auth.form.login') }}" class="btn submit">Đăng nhập</a>
+                @endif
             </div>
+            @else
+               <div class="pb-4">
+                   @include('share.empty')
+               </div>
+            @endif
         </form>
     </div>
 @endsection

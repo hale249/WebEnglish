@@ -30,10 +30,6 @@ class BookController extends Controller
         }
 
         $userId = !empty($data['user_id']) ? $data['user_id'] : null;
-//        if (!auth()->user()->hasPermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)) {
-//            $userId = auth()->id();
-//        }
-
         if (!empty($userId)) {
             $books = $books->where('user_id', $userId);
         }

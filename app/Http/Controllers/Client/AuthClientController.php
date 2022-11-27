@@ -83,7 +83,7 @@ class AuthClientController extends Controller
      */
     public function logout(): RedirectResponse
     {
-        if (!empty(Auth::guard('client')->user())) {
+        if (empty(Auth::guard('client')->user())) {
             return redirect()->route('client.home.index');
         }
 

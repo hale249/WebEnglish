@@ -12,6 +12,7 @@ use \App\Http\Controllers\Client\SkillController;
 use App\Http\Controllers\Client\AuthClientController;
 use App\Http\Controllers\Client\QuizController as ClientQuizController;
 use App\Http\Controllers\AuthController as AdminAuthController;
+use \App\Http\Controllers\Client\MusicController as ClientMusicController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,21 +34,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'as' => 'admin.', '
      */
     Route::post('admin/logout', [AdminAuthController::class, 'logout'])->name('auth.logout');
 
-    Route::group(['middleware' => ['permission:' . PermissionConstant::PERMISSION_VIEW_BACKEND]], function () {
-        Route::get('/', [BackendDashboardController::class, 'index'])->name('dashboard.index');
-        require __DIR__ . '/admin/user.php';
-        require __DIR__ . '/admin/profile.php';
-        require __DIR__ . '/admin/category.php';
-        require __DIR__ . '/admin/slider.php';
-        require __DIR__ . '/admin/blog.php';
-        require __DIR__ . '/admin/video.php';
-        require __DIR__ . '/admin/book.php';
-        require __DIR__ . '/admin/music.php';
-        require __DIR__ . '/admin/skillCategory.php';
-        require __DIR__ . '/admin/skill.php';
-        require __DIR__ . '/admin/skillCourses.php';
-        require __DIR__ . '/admin/quiz.php';
-    });
+    Route::get('/', [BackendDashboardController::class, 'index'])->name('dashboard.index');
+    require __DIR__ . '/admin/user.php';
+    require __DIR__ . '/admin/profile.php';
+    require __DIR__ . '/admin/category.php';
+    require __DIR__ . '/admin/slider.php';
+    require __DIR__ . '/admin/blog.php';
+    require __DIR__ . '/admin/video.php';
+    require __DIR__ . '/admin/book.php';
+    require __DIR__ . '/admin/music.php';
+    require __DIR__ . '/admin/skillCategory.php';
+    require __DIR__ . '/admin/skill.php';
+    require __DIR__ . '/admin/skillCourses.php';
+    require __DIR__ . '/admin/quiz.php';
+    require __DIR__ . '/admin/client.php';
 });
 
 Route::group(['as' => 'client.'], function () {
@@ -61,8 +61,8 @@ Route::group(['as' => 'client.'], function () {
     Route::get('dictionary', [DictionaryController::class, 'index'])->name('dictionary.index');
     Route::get('dictionary/{id}', [DictionaryController::class, 'detail'])->name('dictionary.detail');
 
-    Route::get('music', [\App\Http\Controllers\Client\MusicController::class, 'index'])->name('music.index');
-    Route::get('music/{id}', [\App\Http\Controllers\Client\MusicController::class, 'detail'])->name('music.detail');
+    Route::get('music', [ClientMusicController::class, 'index'])->name('music.index');
+    Route::get('music/{id}', [ClientMusicController::class, 'detail'])->name('music.detail');
 
     Route::get('hoc-qua-video/{slug}', [VideoController::class, 'index'])->name('video.index');
     Route::get('hoc-qua-video/{slug}/{id}', [VideoController::class, 'detail'])->name('video.detail');

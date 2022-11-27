@@ -111,6 +111,18 @@
         </div>
     </li>
 
+    <li class="nav-item @if(\Request::is('admin/clients') || \Request::is('admin/clients/*')) active @endif">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-client-management" aria-expanded="true" aria-controls="menu-client-management">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Quản lý học viên</span>
+        </a>
+        <div id="menu-client-management" class="collapse @if(\Request::is('admin/clients') || \Request::is('admin/clients/*')) show @endif" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item @if(\Request::is('admin/clients')) active @endif" href="{{ route('admin.clients.index') }}">Danh sách học viên</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

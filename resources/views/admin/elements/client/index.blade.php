@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Danh sách người dùng')
+@section('title', 'Danh sách học viên')
 
 @section('content')
     <div class="card">
@@ -8,12 +8,8 @@
             <div class="row">
                 <div class="col-8">
                     <h4 class="card-title mb-0">
-                        Danh sách người dùng quản trị
+                        Danh sách học viên
                     </h4>
-                </div>
-                <div class="col-4 text-right">
-                    <a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-sm"><i
-                            class="fas fa-plus"></i> Tạo mới</a>
                 </div>
             </div>
 

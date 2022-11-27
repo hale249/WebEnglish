@@ -7,12 +7,20 @@
             </a>
         </div>
         <div class="container__member">
-            <a class="container__member-login" data-bs-toggle="modal" data-bs-target="#loginModal">
-                <i class="bi bi-person-fill container__member-login-logo"></i>
-                Đăng nhập
-            </a>
-            <a class="container__member-register" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký thành
-                viên</a>
+            @if(!empty(\Illuminate\Support\Facades\Auth::guard('client')->user()))
+                <span>
+                    {{ \Illuminate\Support\Facades\Auth::guard('client')->user()->name ?? \Illuminate\Support\Facades\Auth::guard('client')->user()->email ?? '' }}
+                </span>
+
+                <a class="container__member-login" href="{{ route('client.auth.logout') }}">Đăng xuất</a>
+            @else
+                <a class="container__member-login" href="{{ route('client.auth.form.login') }}">
+                    <i class="bi bi-person-fill container__member-login-logo"></i>
+                    Đăng nhập
+                </a>
+                <a class="container__member-register" href="{{ route('client.auth.form.register') }}">Đăng ký thành
+                    viên</a>
+            @endif
         </div>
     </div>
 </nav>

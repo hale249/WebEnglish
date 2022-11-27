@@ -19,7 +19,7 @@ class AuthController extends Controller
      */
     public function showFormLogin(): View
     {
-        return view('login');
+        return view('admin.elements.auth.login');
     }
 
     /**
@@ -35,41 +35,11 @@ class AuthController extends Controller
             'password'
         ]);
         $remember = $request->input('remember_me');
-        if (Auth::attempt($credentials, $remember)) {
+        if (Auth::guard('web')->attempt($credentials, $remember)) {
             return redirect()->route('admin.dashboard.index')->with('flash_success', 'Thành công');
         }
 
         return redirect()->back()->withErrors([__('auth.failed')]);
-    }
-
-    /**
-     * Show form register
-     *
-     * @return View
-     */
-    public function showFormRegister(): View
-    {
-        return view('register');
-    }
-
-    /**
-     * Handle register
-     *
-     * @param AuthRegisterRequest $request
-     * @return RedirectResponse
-     */
-    public function register(AuthRegisterRequest $request): RedirectResponse
-    {
-        $data = $request->only([
-            'email',
-            'name',
-            'password'
-        ]);
-        $data['password'] = Hash::make($data['password']);
-
-        User::query()->create($data);
-
-        return redirect()->route('auth.login')->with('flash_success', 'Tạo tài khoản thành công');
     }
 
     /**
@@ -79,8 +49,8 @@ class AuthController extends Controller
      */
     public function logout(): RedirectResponse
     {
-        Auth::logout();
+        Auth::guard('web')->logout();
 
-        return redirect()->route('frontend.home')->with('flash_success', 'Thành công');
+        return redirect()->route('admin.auth.show-form-login')->with('flash_success', 'Thành công');
     }
 }

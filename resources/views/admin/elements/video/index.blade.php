@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{ $video->title }}</td>
                                 <td>
-                                    <img src="{{ $video->image }}" width="100">
+                                    <img src="{{ $video->image }}" width="50">
                                 </td>
                                 <td>{{ $video->category->name }}</td>
                                 <td>{{ $video->user->name }}</td>

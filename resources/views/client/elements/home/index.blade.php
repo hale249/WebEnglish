@@ -5,107 +5,33 @@
 @section('content')
     <div class="body__lesson">
         <div class="header__title">
-            <a href="{{ route('client.skill.index') }}" class="body__lesson-link body__lesson-title">
+            <span class="body__lesson-link body__lesson-title">
                 HỌC PHÁT ÂM TIẾNG ANH <span>VỚI GIÁO VIÊN MỸ</span>
-                <a href="" class=" body__lesson-title"><i
-                        class="body__lesson-link-logo bi bi-chevron-right"></i></a>
-            </a>
+                <span class=" body__lesson-title"><i
+                        class="body__lesson-link-logo bi bi-chevron-right"></i></span>
+            </span>
         </div>
         <h4 class="body__lesson-title-strong">
-            Dành cho học sinh cấp 2
+            Luyện phát âm chuẩn người bản ngữ
         </h4>
         <div class="container">
             <div class="row">
-                <div class="col-4 p-0 mb-4">
-                    <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
-                            <img
-                                src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit1.png"
-                                class="figure-img img-fluid rounded body__lesson-img"
-                                alt="...">
-                            <figcaption class="figure-caption"><a
-                                    class="figure-caption__link"
-                                    href="{{ route('client.skill.detail', 1) }}"><span>1</span>a
-                                    - âm /æ/
-                                </a></figcaption>
-                        </a>
-                    </figure>
-                </div>
-                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
-                    <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
-                            <img
-                                src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit2.png"
-                                class="figure-img img-fluid rounded body__lesson-img"
-                                alt="...">
-                            <figcaption class="figure-caption"><a
-                                    class="figure-caption__link"
-                                    href="{{ route('client.skill.detail', 1) }}"><span>2</span>b
-                                    - âm /b/
-                                </a></figcaption>
-                        </a>
-                    </figure>
-                </div>
-                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
-                    <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
-                            <img
-                                src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit3.png"
-                                class="figure-img img-fluid rounded body__lesson-img"
-                                alt="...">
-                            <figcaption class="figure-caption"><a
-                                    class="figure-caption__link"
-                                    href="{{ route('client.skill.detail', 1) }}"><span>3</span>c
-                                    - âm /k/
-                                </a></figcaption>
-                        </a>
-                    </figure>
-                </div>
-                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
-                    <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
-                            <img
-                                src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit4.png"
-                                class="figure-img img-fluid rounded body__lesson-img"
-                                alt="...">
-                            <figcaption class="figure-caption"><a
-                                    class="figure-caption__link"
-                                    href="{{ route('client.skill.detail', 1) }}"><span>4</span>d
-                                    - âm /d/
-                                </a></figcaption>
-                        </a>
-                    </figure>
-                </div>
-                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
-                    <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
-                            <img
-                                src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit5.png"
-                                class="figure-img img-fluid rounded body__lesson-img"
-                                alt="...">
-                            <figcaption class="figure-caption"><a
-                                    class="figure-caption__link"
-                                    href="{{ route('client.skill.detail', 1) }}"><span>5</span>e
-                                    - âm /e/
-                                </a></figcaption>
-                        </a>
-                    </figure>
-                </div>
-                <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
-                    <figure class="figure">
-                        <a class="body__lesson-title-link" href="{{ route('client.skill.detail', 1) }}">
-                            <img
-                                src="https://www.tienganh123.com/file/baihoc/phat_am/images1/unit6.png"
-                                class="figure-img img-fluid rounded body__lesson-img"
-                                alt="...">
-                            <figcaption class="figure-caption"><a
-                                    class="figure-caption__link"
-                                    href="{{ route('client.skill.detail', 1) }}"><span>6</span>f
-                                    - âm /f/
-                                </a></figcaption>
-                        </a>
-                    </figure>
-                </div>
+                @foreach($skills as $key=>$skill)
+                    <div class="col-xl-4 col-sm-6 col-xs-12 mb-2 p-3">
+                        <figure class="figure">
+                            <a class="body__lesson-title-link" href="{{ route('client.skill.detail', $skill->id) }}">
+                                <img
+                                    srcset="{{ $skill->image }}"
+                                    class="figure-img img-fluid rounded body__lesson-img"
+                                    alt="{{ $skill->name }}">
+                                <figcaption class="figure-caption"><a
+                                        class="figure-caption__link"
+                                        href="{{ route('client.skill.detail', $skill->id) }}"><span>{{ $key+1 }}</span>{{ $skill->name }}
+                                    </a></figcaption>
+                            </a>
+                        </figure>
+                    </div>
+                @endforeach
             </div>
         </div>
         <div class="body__lesson-footer">
@@ -113,85 +39,39 @@
                 <span class="body__lesson-footer-icon"><i class="bi bi-fire"></i></span>Hot
                 nhất trên 123 Tiếng Anh
             </div>
-            <a href="{{ route('client.lesson.index') }}" class="body__lesson-footer-btn"><span>Xem thêm</span><i
-                    class="body__lesson-link-logo bi bi-chevron-right"></i></a>
+
+            @if(count($skills) === 6)
+                <a href="{{ route('client.skill.index', ['category_id' => $categoryPron->id]) }}" class="body__lesson-footer-btn"><span>Xem thêm</span><i
+                        class="body__lesson-link-logo bi bi-chevron-right"></i></a>
+            @endif
         </div>
         <div class="new__lesson">
             <div class="header__title">
-                <a href="{{ route('client.lesson.index') }}" class="body__lesson-link body__lesson-title">
-                    BÀI MỚI <span>TIẾNG ANH PHỔ THÔNG</span>
-                    <a href="" class=" body__lesson-title"><i
-                            class="body__lesson-link-logo bi bi-chevron-right"></i></a>
-                </a>
+                <span class="body__lesson-link body__lesson-title">
+                    BÀI LUYỆN TẬP <span>KỸ NĂNG TIẾNG ANH</span>
+                    <span class=" body__lesson-title"><i
+                            class="body__lesson-link-logo bi bi-chevron-right"></i></span>
+                </span>
             </div>
             <ul class="list-group">
-                <li class="new__lesson-item list-group-item d-flex
+                @foreach($quizList as $quiz)
+                    <li class="new__lesson-item list-group-item d-flex
                 justify-content-between align-items-start">
-                    <a class="new__lesson-item-link" href="">
-                        <div class="new__lesson-content">
-                            <div class="fw-bold new__lesson-content--blue">Thực hành
-                                tiếng Anh hàng ngày
+                        <a class="new__lesson-item-link" href="{{ route('client.quiz.question', $quiz->id) }}">
+                            <div class="new__lesson-content">
+                                <div class="fw-bold new__lesson-content--blue">
+                                    {{ $quiz->name }}
+                                </div>
+                                <span>{{ $quiz->description }}</span>
                             </div>
-                            <span>Thực hành tiếng Anh hàng ngày</span>
-                        </div>
-                    </a>
-                    <span class="new__lesson-date">Cập nhật cuối: 2021-10-01
-                  17:19:13</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between
-                align-items-start">
-                    <a class="new__lesson-item-link" href="">
-                        <div class="new__lesson-content">
-                            <div class="fw-bold new__lesson-content--blue">Tiếng Anh
-                                hàng ngày
-                            </div>
-                            <span>Tiếng Anh hàng ngày</span>
-                        </div>
-                    </a>
-                    <span class="new__lesson-date">Cập nhật cuối: 2021-10-01
-                  17:16:34</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between
-                align-items-start">
-                    <a class="new__lesson-item-link" href="">
-                        <div class="new__lesson-content">
-                            <div class="fw-bold new__lesson-content--blue">Tiếng Anh
-                                hàng ngày
-                            </div>
-                            <span>Tiếng Anh hàng ngày</span>
-                        </div>
-                    </a>
-                    <span class="new__lesson-date">Cập nhật cuối: 2021-10-01
-                  17:16:34</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between
-                align-items-start">
-                    <a class="new__lesson-item-link" href="">
-                        <div class="new__lesson-content">
-                            <div class="fw-bold new__lesson-content--blue">Đưa ra lời
-                                cảnh báo - Bài tập
-                            </div>
-                            <span>Thực hành tiếng Anh hàng ngày</span>
-                        </div>
-                    </a>
-                    <span class="new__lesson-date">Cập nhật cuối: 2021-10-01
-                  17:00:26</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between
-                align-items-start">
-                    <a class="new__lesson-item-link" href="">
-                        <div class="new__lesson-content">
-                            <div class="fw-bold new__lesson-content--blue">So sánh nhất
-                                của tính từ ngắn - Bài tập 6
-                            </div>
-                            <span>Thực hành ngữ pháp</span>
-                        </div>
-                    </a>
-                    <span class="new__lesson-date">Cập nhật cuối: 2021-10-01
-                  16:58:18</span>
-                </li>
+                        </a>
+                        <span class="new__lesson-date">Cập nhật cuối: {{ $quiz->updated_at->format('d-m-Y h:i:s') }}</span>
+                    </li>
+                @endforeach
             </ul>
-            <a href="{{ route('client.lesson.index') }}" class="new__lesson-btn body__lesson-footer-btn">Xem thêm</a>
+            @if(count($quizList) === 5)
+            <a href="{{ route('client.quiz.index') }}" class="new__lesson-btn body__lesson-footer-btn">Xem thêm</a>
+            @endif
         </div>
         <div class="lesson__banner"></div>
         <div class="lesson__hightschool">
@@ -226,13 +106,12 @@
         </div>
         <div class="point" id="skill">
             <div class="header__title">
-                <a href="{{ route('client.skill.index') }}" class="body__lesson-link body__lesson-title">
+                <span class="body__lesson-link body__lesson-title">
                     LUYỆN KỸ NĂNG
                     <span class=" body__lesson-title"><i
                             class="body__lesson-link-logo bi bi-chevron-right"></i>
                     </span>
-                </a>
-                </a>
+                </span>
             </div>
             <div class="container text-center point__content">
                 <div class="row">

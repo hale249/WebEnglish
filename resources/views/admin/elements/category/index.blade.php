@@ -38,7 +38,7 @@
                             <tr>
                                 <td>{{ $category->name }}</td>
                                 <td>
-                                    <img src="{{ $category->image }}" width="100">
+                                    <img src="{{ $category->image }}" width="50">
                                 </td>
                                 @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)
                                     <td>{{ $category->user->name }}</td>

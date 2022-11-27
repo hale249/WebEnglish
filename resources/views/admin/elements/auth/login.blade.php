@@ -27,7 +27,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Đăng nhập</h1>
                                 </div>
-                                <form class="user" action="{{ route('auth.login') }}" method="post">
+                                <form class="user" action="{{ route('admin.auth.login') }}" method="post">
                                     @csrf
                                     @include('share.alerts.messages')
                                     <div class="form-group">

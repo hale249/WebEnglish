@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Helpers\PermissionConstant;
 use \App\Http\Controllers\Admin\DashboardController as BackendDashboardController;
 use App\Http\Controllers\Client\DictionaryController;
 use App\Http\Controllers\Client\HomeController;
@@ -13,6 +12,7 @@ use App\Http\Controllers\Client\AuthClientController;
 use App\Http\Controllers\Client\QuizController as ClientQuizController;
 use App\Http\Controllers\AuthController as AdminAuthController;
 use \App\Http\Controllers\Client\MusicController as ClientMusicController;
+use App\Http\Controllers\Client\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,4 +79,10 @@ Route::group(['as' => 'client.'], function () {
     Route::get('login', [AuthClientController::class, 'showFormLogin'])->name('auth.form.login');
     Route::post('login', [AuthClientController::class, 'login'])->name('auth.login');
     Route::get('login/logout', [AuthClientController::class, 'logout'])->name('auth.logout');
+
+    Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+    Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('reset-password/{token}', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 });

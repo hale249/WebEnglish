@@ -8,8 +8,8 @@
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
-                    Người dùng
-                    <small class="text-muted">Thay đổi mật khẩu</small>
+                    Danh sách khách hàng
+                    <small class="text-muted">Thay đổi mật khẩu: {{ $user->name ?? $user->email ?? '' }}</small>
                 </h4>
                 <hr>
 

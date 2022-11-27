@@ -31,10 +31,10 @@ class DashboardController extends Controller
             'client' => $client
         ];
 
-        $users = Client::select(DB::raw("COUNT(*) as total"), DB::raw("MONTHNAME(created_at) as month_name"))
+        $users = Client::select(DB::raw("COUNT(*) as total"), DB::raw("DAYNAME(created_at) as day_name"))
             ->whereYear('created_at', date('Y'))
-            ->groupBy('month_name')
-            ->pluck('total', 'month_name');
+            ->groupBy('day_name')
+            ->pluck('total', 'day_name');
         $labels = $users->keys();
         $data = $users->values();
 

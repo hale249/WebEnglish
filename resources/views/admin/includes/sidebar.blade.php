@@ -123,22 +123,24 @@
         </div>
     </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    @if(\Illuminate\Support\Facades\Auth::user()->role == \App\Helpers\PermissionConstant::ROLE_ADMIN)
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item @if(\Request::is('admin/users') || \Request::is('admin/users/*')) active @endif">
-        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-user-management" aria-expanded="true" aria-controls="menu-user-management">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Người dùng quản trị</span>
-        </a>
-        <div id="menu-user-management" class="collapse @if(\Request::is('admin/users') || \Request::is('admin/users/*')) show @endif" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if(\Request::is('admin/users')) active @endif" href="{{ route('admin.users.index') }}">Danh sách người dùng</a>
-                <a class="collapse-item @if(\Request::is('admin/users/create')) active @endif" href="{{ route('admin.users.create') }}">Tạo người dùng</a>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item @if(\Request::is('admin/users') || \Request::is('admin/users/*')) active @endif">
+            <a class="nav-link" href="#" data-toggle="collapse" data-target="#menu-user-management" aria-expanded="true" aria-controls="menu-user-management">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Người dùng quản trị</span>
+            </a>
+            <div id="menu-user-management" class="collapse @if(\Request::is('admin/users') || \Request::is('admin/users/*')) show @endif" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item @if(\Request::is('admin/users')) active @endif" href="{{ route('admin.users.index') }}">Danh sách người dùng</a>
+                    <a class="collapse-item @if(\Request::is('admin/users/create')) active @endif" href="{{ route('admin.users.create') }}">Tạo người dùng</a>
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
+    @endif
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

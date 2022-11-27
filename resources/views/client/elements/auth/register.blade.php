@@ -40,7 +40,7 @@
                     <hr>
                     <div class="d-flex justify-content-center gap-3 mb-4">
                         <div>
-                            <a class="small text-primary" href="#">Quên mật khẩu</a>
+                            <a class="small text-primary" href="{{ route('client.forget.password.get') }}">Quên mật khẩu</a>
                         </div>
                         <div>
                             <a class="small text-primary" href="{{ route('client.auth.form.login') }}">Đăng nhập</a>

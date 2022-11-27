@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Admin\ClientController as AdminClientController;
 
-Route::get('client', [AdminClientController::class, 'index'])
+Route::get('clients', [AdminClientController::class, 'index'])
     ->name('clients.index');
 
 Route::get('clients/{id}/edit', [AdminClientController::class, 'edit'])
@@ -17,3 +17,6 @@ Route::get('clients/{id}/change-password', [AdminClientController::class, 'showF
 
 Route::post('clients/{id}/change-password', [AdminClientController::class, 'changePassword'])
     ->name('clients.change_password');
+
+Route::get('clients/{id}', [AdminClientController::class, 'show'])
+    ->name('clients.show');

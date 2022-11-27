@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ClientUpdateRequest;
 use App\Http\Requests\Admin\UserChangePasswordRequest;
 use App\Models\Client;
+use App\Models\ClientQuiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -57,8 +59,24 @@ class ClientController extends Controller
     {
         $password = $request->input('password');
         $user = Client::query()->findOrFail($id);
+        $password = Hash::make($password);
         $user->update(['password' => $password]);
 
-        return redirect()->back()->with('flash_success', 'Thanh đổi mật khẩu thành công');
+        return redirect()->route('admin.clients.index')->with('flash_success', 'Thanh đổi mật khẩu thành công');
+    }
+
+    public function show($clientId)
+    {
+        $client = Client::query()->where('id', $clientId)->first();
+        if (empty($client)) {
+            return redirect()->route('admin.clients.index')->with('flash_danger', 'Không tìm thấy thông tin học viên');
+        }
+
+        $questionList = ClientQuiz::query()
+            ->with(['quiz'])
+            ->where('client_id', $clientId)
+            ->paginate(Constant::DEFAULT_PER_PAGE);
+
+        return view('admin.elements.client.show', compact('client', 'questionList'));
     }
 }

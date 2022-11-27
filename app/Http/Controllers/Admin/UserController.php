@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helpers\Constant;
+use App\Helpers\PermissionConstant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserChangePasswordRequest;
 use App\Http\Requests\Admin\UserStoreRequest;
 use App\Http\Requests\Admin\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    /**
-     * Show list users
-     *
-     * @param Request $request
-     * @return View
-     */
-    public function index(Request $request): View
+    public function index(Request $request)
     {
+        if (Auth::user()->role != PermissionConstant::ROLE_ADMIN) {
+            return redirect()->route('admin.dashboard.index');
+        }
         $data = $request->all();
         $users = User::query();
         if (!empty($data['role'])) {
@@ -39,13 +39,12 @@ class UserController extends Controller
         return view('admin.elements.user.index', compact('users'));
     }
 
-    /**
-     * Show form create user
-     *
-     * @return View
-     */
-    public function create(): View
+    public function create()
     {
+        if (Auth::user()->role != PermissionConstant::ROLE_ADMIN) {
+            return redirect()->route('admin.dashboard.index');
+        }
+
         return view('admin.elements.user.create');
     }
 
@@ -63,17 +62,14 @@ class UserController extends Controller
             return redirect()->back()->with('flash_danger', 'Tạo thất bại');
         }
 
-        return redirect()->back()->with('flash_success', 'Thêm mới người dùng thành công');
+        return redirect()->route('admin.users.index')->with('flash_success', 'Thêm mới người dùng thành công');
     }
 
-    /**
-     * Show form edit user
-     *
-     * @param int $id
-     * @return View
-     */
-    public function edit(int $id): View
+    public function edit(int $id)
     {
+        if (Auth::user()->role != PermissionConstant::ROLE_ADMIN) {
+            return redirect()->route('admin.dashboard.index');
+        }
         $user = User::query()->findOrFail($id);
 
         return view('admin.elements.user.edit', compact('user'));
@@ -86,10 +82,11 @@ class UserController extends Controller
             'role'
         ]);
 
+
         $user = User::query()->findOrFail($id);
         $user->update($data);
 
-        return redirect()->back()->with('flash_success', 'Cập nhật người dùng thành công');
+        return redirect()->route('admin.users.index')->with('flash_success', 'Cập nhật người dùng thành công');
     }
 
     public function destroy(int $id)
@@ -104,8 +101,12 @@ class UserController extends Controller
         return redirect()->back()->with('flash_success', 'Xóa nguời dùng thành công');
     }
 
-    public function showFormChangePassword(int $id): View
+    public function showFormChangePassword(int $id)
     {
+        if (Auth::user()->role != PermissionConstant::ROLE_ADMIN) {
+            return redirect()->route('admin.dashboard.index');
+        }
+
         $user = User::query()->findOrFail($id);
 
         return view('admin.elements.user.change_password', compact('user'));
@@ -115,6 +116,7 @@ class UserController extends Controller
     {
         $password = $request->input('password');
         $user = User::query()->findOrFail($id);
+        $password = Hash::make($password);
         $user->update(['password' => $password]);
 
         return redirect()->back()->with('flash_success', 'Thanh đổi mật khẩu thành công');

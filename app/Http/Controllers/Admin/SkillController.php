@@ -69,7 +69,7 @@ class SkillController extends Controller
         $data['user_id'] = auth()->id();
         $skill = Skill::query()
             ->create($data);
-        if (empty($video)) {
+        if (empty($skill)) {
             return redirect()->back()->with('flash_danger', 'Tạo thất bại');
         }
 

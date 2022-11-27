@@ -85,7 +85,6 @@ class SliderController extends Controller
     public function show($id): View
     {
         $slider = Slider::query()->findOrFail($id);
-//        $this->authorize('view', $category);
 
         return view('admin.elements.slider.show', compact('slider'));
     }
@@ -99,7 +98,6 @@ class SliderController extends Controller
     public function edit($id): View
     {
         $slider = Slider::query()->findOrFail($id);
-//        $this->authorize('update', $category);
 
         return view('admin.elements.slider.edit', compact('slider'));
     }
@@ -118,7 +116,6 @@ class SliderController extends Controller
             'description',
         ]);
         $slider = Slider::query()->findOrFail($id);
-//        $this->authorize('update', $slider);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'sliders');
         }
@@ -138,7 +135,6 @@ class SliderController extends Controller
     public function destroy($id): RedirectResponse
     {
         $category = Slider::query()->findOrFail($id);
-//        $this->authorize('delete', $category);
         $category->delete();
 
         return redirect()->route('admin.slider.index')->with('flash_success', 'Xóa slider thành công');

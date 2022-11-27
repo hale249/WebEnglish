@@ -26,21 +26,22 @@ class CategoryController extends Controller
      */
     public function index(Request $request): View
     {
-        $data = $request->all();
-        $categories = Category::query();
+        $data = $request->all(); // Lấy dữ liệu từ user gửi lên
+
+        $categories = Category::query(); // select *  from category where (......) ->order by ()->limit(10)
         if (!empty($data['name'])) {
-            $categories = $categories->where('name', 'like', '%' . $data['name'] . '%');
+            $categories = $categories->where('name', 'like', '%' . $data['name'] . '%'); // tìm kiếm theo câu điều kiện like
         }
 
-        $userId = !empty($data['user_id']) ? $data['user_id'] : null;
+        $userId = !empty($data['user_id']) ? $data['user_id'] : null; // tìm  xem có tồn tại userId không. nếu có sẽ where theo user_id
         if (!empty($userId)) {
             $categories = $categories->where('user_id', $userId);
         }
 
-        $categories = $categories->orderBy('created_at', 'desc')
-            ->paginate(Constant::DEFAULT_PER_PAGE);
+        $categories = $categories->orderBy('created_at', 'desc') // sort by theo column
+            ->paginate(Constant::DEFAULT_PER_PAGE); // phân trang theo perpage = ? ( hiện tain perpage đang để là 10)
 
-        return view('admin.elements.category.index', compact('categories'));
+        return view('admin.elements.category.index', compact('categories')); // đổ dữ liệu ra view
     }
 
     /**
@@ -82,12 +83,10 @@ class CategoryController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function show($id): View
     {
         $category = Category::query()->findOrFail($id);
-        $this->authorize('view', $category);
 
         return view('admin.elements.category.show', compact('category'));
     }
@@ -97,12 +96,10 @@ class CategoryController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function edit($id): View
     {
         $category = Category::query()->findOrFail($id);
-        $this->authorize('update', $category);
 
         return view('admin.elements.category.edit', compact('category'));
     }
@@ -113,7 +110,6 @@ class CategoryController extends Controller
      * @param CategoryStoreRequest $request
      * @param int $id
      * @return RedirectResponse
-     * @throws AuthorizationException
      */
     public function update(CategoryStoreRequest $request, $id): RedirectResponse
     {
@@ -122,7 +118,6 @@ class CategoryController extends Controller
             'description',
         ]);
         $category = Category::query()->findOrFail($id);
-        $this->authorize('update', $category);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'categories');
         }
@@ -142,7 +137,6 @@ class CategoryController extends Controller
     public function destroy($id): RedirectResponse
     {
         $category = Category::query()->findOrFail($id);
-        $this->authorize('delete', $category);
         $category->delete();
 
         return redirect()->route('admin.category.index')->with('flash_success', 'Xóa danh mục thành công');

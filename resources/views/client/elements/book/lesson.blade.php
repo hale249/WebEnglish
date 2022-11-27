@@ -3,8 +3,6 @@
 @section('title', 'Chi tiết')
 
 @section('content')
-    <div class="banner__top"></div>
-    <div class="banner__body"></div>
     <div class="container container__background">
         <h2 class="heading__h">{{ $book->name }}</h2>
         <p class="font-size">

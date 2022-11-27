@@ -53,7 +53,7 @@ class BlogController extends Controller
             'title',
             'sub_title',
             'content',
-            'status',
+            'is_active',
         ]);
         $data['is_active'] = !empty($data['is_active']);
 

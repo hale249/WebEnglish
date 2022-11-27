@@ -85,7 +85,7 @@
 
                     <div class="col-md-10">
                         <input type="checkbox" data-on="Hiện" value="1"
-                               @if($blog->is_active) checked @endif data-off="Ẩn" name="is_active" id="is_active"
+                               @if($video->is_active) checked @endif data-off="Ẩn" name="is_active" id="is_active"
                                data-toggle="toggle" data-onstyle="primary">
                     </div><!--col-->
                 </div>

@@ -26,7 +26,6 @@
 5. Chạy lệnh để sinh ra table và dữ liệu mẫu 
     - tạo table: php artisan migrate
     - Sinh dữ liệu mẫu: 
-      - php artisan db:seed --class=DefineRoleSeed
       - php artisan db:seed --class=UserAdminSeed
       - php artisan db:seed --class=BookSeeder
 

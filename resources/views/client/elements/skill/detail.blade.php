@@ -18,7 +18,7 @@
                 </div>
             @endforeach
         @else
-            @include('share.empty');
+            @include('share.empty')
         @endif
 
         @if(!$skill->is_login)

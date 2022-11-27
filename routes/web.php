@@ -57,7 +57,6 @@ Route::group(['as' => 'client.'], function () {
     Route::get('book/{slug}', [BookHighSchoolController::class, 'lesson'])->name('book.lesson');
     Route::get('book/{slug}/{lessonSlug}', [BookHighSchoolController::class, 'unitLesson'])->name('book.unit');
     Route::get('book/{slug}/{lessonSlug}/{unitId}', [BookHighSchoolController::class, 'unitDetail'])->name('book.unitDetail');
-    Route::get('', [HomeController::class, 'index'])->name('home.index');
     Route::get('dictionary', [DictionaryController::class, 'index'])->name('dictionary.index');
     Route::get('dictionary/{id}', [DictionaryController::class, 'detail'])->name('dictionary.detail');
 

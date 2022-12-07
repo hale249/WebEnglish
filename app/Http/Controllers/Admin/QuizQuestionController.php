@@ -87,7 +87,7 @@ class QuizQuestionController extends Controller
             return redirect()->route('admin.quiz.index')->with('flash_danger', 'Không tìm thấy bài kiểm tra');
         }
 
-        $question = QuizQuestions::query()->with(['options'])->where('quiz_id', $id)->first();
+        $question = QuizQuestions::query()->with(['options'])->where('id', $id)->first();
         if (empty($question)) {
             return redirect()->route('admin.quiz.question.index', ['slug' => $slug])->with('flash_danger', 'Không tìm thấy bài kiểm tra');
         }
@@ -102,7 +102,7 @@ class QuizQuestionController extends Controller
             return redirect()->route('admin.quiz.index')->with('flash_danger', 'Không tìm thấy bài kiểm tra');
         }
 
-        $quizQuestion = QuizQuestions::query()->with(['options'])->where('quiz_id', $id)->first();
+        $quizQuestion = QuizQuestions::query()->with(['options'])->where('id', $id)->first();
         if (empty($quizQuestion)) {
             return redirect()->route('admin.quiz.question.index', ['slug' => $slug])->with('flash_danger', 'Không tìm thấy bài kiểm tra');
         }

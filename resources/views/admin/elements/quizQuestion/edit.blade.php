@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-success btn-sm">Tạo</button>
+                        <button type="submit" class="btn btn-success btn-sm">Cập nhật</button>
                     </div>
                 </div>
             </div>

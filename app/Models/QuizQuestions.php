@@ -34,36 +34,4 @@ class QuizQuestions extends Model
     {
         return $this->hasMany(QuestionOptions::class, 'question_id', 'id');
     }
-
-    /**
-     * @return string
-     */
-    public function getActionButtonsAttribute(): string
-    {
-        return '
-        <div class="btn-group btn-group-sm" role="group" aria-label="Hành động">
-          ' . $this->edit_button . '
-          ' . $this->delete_button . '
-        </div>';
-    }
-
-    /**
-     * @return string
-     */
-    public function getEditButtonAttribute(): string
-    {
-        return '<a href="' . route('admin.quiz.question.edit', ['id' => $this->book_id, 'lessonId' => $this->id]) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>';
-    }
-
-    /**
-     * @return string
-     */
-    public function getDeleteButtonAttribute(): string
-    {
-        return '<a href="' . route('admin.book.lesson.destroy', ['id' => $this->book_id, 'lessonId' => $this->id]) . '"
-                 data-trans-button-cancel="Hủy"
-                 data-trans-button-confirm="Xóa"
-                 data-trans-title="Chắc chắn bạn muốn xóa?"
-                 class="btn btn-danger js-confirm-delete btn-sm"><i class="fas fa-trash"></i></a>';
-    }
 }

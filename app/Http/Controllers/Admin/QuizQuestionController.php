@@ -134,9 +134,9 @@ class QuizQuestionController extends Controller
         });
 
         if (empty($question)) {
-            return redirect()->back()->with('flash_danger', 'Tạo thất bại');
+            return redirect()->back()->with('flash_danger', 'Cập nhật thất bại');
         }
 
-        return redirect()->route('admin.quiz.question.index', ['slug' => $slug])->with('flash_success', 'Tạo thành công');
+        return redirect()->route('admin.quiz.question.index', ['slug' => $slug])->with('flash_success', 'Cập nhật thành công');
     }
 }

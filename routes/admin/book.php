@@ -60,3 +60,6 @@ Route::put('book/{id}/lessons/{lessonId}/courses/{courseId}', [AdminBookLessonCo
 
 Route::delete('book/{id}/lessons/{lessonId}/courses/{courseId}', [AdminBookLessonCourseController::class, 'destroy'])
     ->name('book.lesson.course.destroy');
+
+
+    #Tạo các route xử lý hành động 

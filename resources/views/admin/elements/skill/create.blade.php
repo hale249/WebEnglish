@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tạo video bài học qua kỹ năng')
+@section('title', 'Tạo bài học qua kỹ năng')
 
 @section('content')
     <div class="card">

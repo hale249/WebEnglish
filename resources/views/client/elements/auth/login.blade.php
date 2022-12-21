@@ -17,7 +17,7 @@
                             <label for="email">Email</label>
                             <input type="email" name="email" value="{{ old('email') }}"
                                    class="form-control form-control-user" id="email" required
-                                   aria-describedby="emailHelp" placeholder="Nhậpp Email...">
+                                   aria-describedby="emailHelp" placeholder="Nhập Email...">
                         </div>
                         <div class="form-group mb-3">
                             <label for="password">Mật khẩu</label>

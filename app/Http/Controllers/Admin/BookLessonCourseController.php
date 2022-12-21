@@ -75,7 +75,7 @@ class BookLessonCourseController extends Controller
         $course = LessonCourse::query()
             ->create($data);
         if (empty($course)) {
-            return redirect()->back()->with('flash_danger', 'Tạo thất bại');
+            return redirect()->back()->with('flash_danger', 'Tạo thất bại');#lỗi khi tạo thất bại
         }
 
         return redirect()->route('admin.book.lesson.course.index', ['id' => $bookId, 'lessonId' => $lessonId])

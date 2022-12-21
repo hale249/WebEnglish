@@ -40,7 +40,7 @@ class QuizController extends Controller
             return redirect()->back()->with('flash_danger', 'Tạo thất bại');
         }
 
-        return redirect()->route('admin.quiz.index')->with('flash_success', 'Tạo bài hát thành công');
+        return redirect()->route('admin.quiz.index')->with('flash_success', 'Tạo câu hỏi thành công');
     }
 
     public function edit($id)

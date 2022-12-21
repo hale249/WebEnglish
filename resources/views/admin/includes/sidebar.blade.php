@@ -54,7 +54,7 @@
         <div id="menu-video-management" class="collapse @if(\Request::is('admin/video') || \Request::is('admin/video/*') || \Request::is('admin/categories') || \Request::is('admin/categories/*')) show @endif" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item @if(\Request::is('admin/categories')) active @endif" href="{{ route('admin.category.index') }}">Danh mục</a>
-                <a class="collapse-item @if(\Request::is('admin/video')) active @endif" href="{{ route('admin.video.index') }}">Danh sách bài học</a>
+                <a class="collapse-item @if(\Request::is('admin/video')) active @endif" href="{{ route('admin.video.index') }}">Danh sách video</a>
             </div>
         </div>
     </li>
@@ -66,7 +66,7 @@
         </a>
         <div id="menu-music-management" class="collapse @if(\Request::is('admin/music') || \Request::is('admin/music/*')) show @endif" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item @if(\Request::is('admin/music')) active @endif" href="{{ route('admin.music.index') }}">Danh sách bài học</a>
+                <a class="collapse-item @if(\Request::is('admin/music')) active @endif" href="{{ route('admin.music.index') }}">Danh sách bài hát</a>
             </div>
         </div>
     </li>

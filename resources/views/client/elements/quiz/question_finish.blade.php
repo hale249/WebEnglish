@@ -21,7 +21,7 @@
                         @foreach($question['options'] as $key=>$option)
                             <div class=" form-check col-6 mb-3">
                                 <input type="radio" @if($option->id == $question['client_answer']) checked @endif value="{{ $option->id }}" name="{{$question['id']}}" id="questionForm{{$question['id']}}{{\App\Helpers\Helper::convertKeyNumberToAlphabet($key)}}">
-                                <label class="form-check-label @if($question['client_answer'] != $question['correct_answer'] && $option->is_right_option) text-bg-primary @endif" for="questionForm{{$question['id']}}{{\App\Helpers\Helper::convertKeyNumberToAlphabet($key)}}">
+                                <label class="form-check-label @if($question['client_answer'] != $question['correct_answer'] && $option->is_right_option) text-bg-primary @endif" for="questionForm{{$question['id']}}{{\App\Helpers\Helper::convertKeyNumberToAlphabet($key)}} ">
                                     {{ \App\Helpers\Helper::convertKeyNumberToAlphabet($key) }}.
                                     {{ $option->option }}
                                 </label>

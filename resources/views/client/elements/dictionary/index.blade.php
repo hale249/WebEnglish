@@ -46,9 +46,9 @@
                 <div class="d-flex justify-content-around bg-light">
                     <ul class="mr-5 diction__list">
                         <li class="">
-                            <a href="{{ route('client.dictionary.index', ['search' => 'approach']) }}"
+                            <a href="{{ route('client.dictionary.index', ['search' => 'cat']) }}"
                                class="fs-5 text text-decoration-underline">
-                                approach
+                                cat
                             </a>
                         </li>
                         <li>

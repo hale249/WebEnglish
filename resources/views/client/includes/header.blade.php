@@ -8,6 +8,12 @@
         </div>
         <div class="container__member">
             @if(!empty(\Illuminate\Support\Facades\Auth::guard('client')->user()))
+                <img
+                    srcset="https://ui-avatars.com/api/?name={{ \Illuminate\Support\Facades\Auth::guard('client')->user()->name ?? \Illuminate\Support\Facades\Auth::guard('client')->user()->email ?? '' }}"
+                    alt="avatar"
+                    class="cursor-pointer"
+                    style="border-radius: 50%; width: 40px;"
+                />
                 <span>
                     {{ \Illuminate\Support\Facades\Auth::guard('client')->user()->name ?? \Illuminate\Support\Facades\Auth::guard('client')->user()->email ?? '' }}
                 </span>
